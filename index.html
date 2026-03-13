@@ -34,7 +34,6 @@
     overflow-x: hidden;
   }
 
-  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -48,7 +47,6 @@
     padding: 3.5rem 2rem 2rem;
     text-align: center;
     position: relative;
-    overflow: hidden;
   }
 
   .hero::after {
@@ -92,7 +90,6 @@
     font-weight: 300;
   }
 
-  /* Anatomy nav */
   .anatomy-nav {
     display: flex;
     justify-content: center;
@@ -129,7 +126,6 @@
     box-shadow: 0 0 20px var(--accent-glow);
   }
 
-  /* Cards container */
   .container {
     max-width: 900px;
     margin: 0 auto;
@@ -202,10 +198,7 @@
     border: 1px solid color-mix(in srgb, var(--card-color) 20%, transparent);
   }
 
-  .card-title-block {
-    flex: 1;
-    min-width: 0;
-  }
+  .card-title-block { flex: 1; min-width: 0; }
 
   .card-title {
     font-family: 'Playfair Display', serif;
@@ -236,9 +229,7 @@
     font-size: 0.9rem;
   }
 
-  .card.open .card-toggle {
-    transform: rotate(45deg);
-  }
+  .card.open .card-toggle { transform: rotate(45deg); }
 
   .card-body {
     max-height: 0;
@@ -246,9 +237,7 @@
     transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .card.open .card-body {
-    max-height: 800px;
-  }
+  .card.open .card-body { max-height: 800px; }
 
   .card-content {
     padding: 0 1.3rem 1.3rem;
@@ -259,7 +248,6 @@
     margin-top: 0.9rem;
     font-size: 0.92rem;
     line-height: 1.7;
-    color: var(--text);
   }
 
   .detail-grid {
@@ -269,9 +257,7 @@
     margin-top: 1rem;
   }
 
-  @media (max-width: 500px) {
-    .detail-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 500px) { .detail-grid { grid-template-columns: 1fr; } }
 
   .detail-box {
     background: color-mix(in srgb, var(--card-color) 5%, var(--bg));
@@ -293,7 +279,6 @@
   .detail-value {
     font-size: 0.83rem;
     line-height: 1.55;
-    color: var(--text);
   }
 
   .tag-row {
@@ -314,7 +299,37 @@
     border: 1px solid color-mix(in srgb, var(--card-color) 18%, transparent);
   }
 
-  /* Footer */
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: color-mix(in srgb, var(--card-color) 20%, transparent);
+    border: 1px solid color-mix(in srgb, var(--card-color) 30%, transparent);
+    transition: all 0.25s ease;
+  }
+
+  .card-link:hover {
+    background: color-mix(in srgb, var(--card-color) 35%, transparent);
+    transform: translateX(3px);
+  }
+
+  .card-link svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
   .footer {
     text-align: center;
     padding: 2rem;
@@ -331,97 +346,102 @@
 <div class="hero">
   <div class="hero-icon">🔬</div>
   <h1>Patologii Gastrointestinale</h1>
-  <p>Ghid vizual interactiv — de la intoleranțe alimentare la patologii organice ale tractului digestiv</p>
+  <p>Ghid vizual interactiv &mdash; de la intoleran&#x021B;e alimentare la patologii organice ale tractului digestiv</p>
 </div>
 
 <nav class="anatomy-nav" id="nav"></nav>
 
 <div class="container">
-  <div class="section-label" id="sectionLabel">— Toate patologiile</div>
+  <div class="section-label" id="sectionLabel">&mdash; Toate patologiile</div>
   <div class="cards-grid" id="cardsGrid"></div>
 </div>
 
-<div class="footer">Conținut educațional • <span>Abonați la Sănătate</span></div>
+<div class="footer">Con&#x021B;inut educa&#x021B;ional &bull; <span>Abona&#x021B;i la S&#x103;n&#x103;tate</span></div>
 
 <script>
 const DATA = [
   {
-    category: "Intoleranțe",
+    category: "Intoleran\u021be",
     items: [
       {
-        title: "Intoleranța la lactoză",
-        subtitle: "Deficit de lactază",
-        icon: "🥛",
+        title: "Intoleran\u021ba la lactoz\u0103",
+        subtitle: "Deficit de lactaz\u0103",
+        icon: "\uD83E\uDD5B",
         color: "var(--blue)",
-        description: "Incapacitatea de a digera lactoza din cauza deficitului enzimei lactază. Lactoza nedigerată ajunge în colon unde este fermentată de bacterii, producând gaze, balonare și diaree. Frecvența variază semnificativ: sub 5% în nordul Europei, dar peste 70% în Asia și Africa.",
+        slug: "intoleranța-lactoza",
+        description: "Incapacitatea de a digera lactoza din cauza deficitului enzimei lactaz\u0103. Lactoza nedigerat\u0103 ajunge \u00een colon unde este fermentat\u0103 de bacterii, produc\u00e2nd gaze, balonare \u0219i diaree.",
         details: {
-          "Simptome": "Balonare, crampe abdominale, flatulență, diaree — apărute la 30 min–2 ore după ingestia de lactoză",
-          "Mecanism": "Activitatea lactazei scade natural după înțărcare (forma primară) sau prin leziuni intestinale (forma secundară)",
-          "Diagnostic": "Test respirator cu hidrogen, test de toleranță la lactoză, test genetic (LCT -13910 C/T)",
-          "Management": "Reducerea sau eliminarea lactozei, enzime de substituție (lactază exogenă), alternative vegetale fortificate cu calciu"
+          "Simptome": "Balonare, crampe abdominale, flatulen\u021b\u0103, diaree \u2014 ap\u0103rute la 30 min\u20132 ore dup\u0103 ingestia de lactoz\u0103",
+          "Mecanism": "Activitatea lactazei scade natural dup\u0103 \u00een\u021b\u0103rcare (forma primar\u0103) sau prin leziuni intestinale (forma secundar\u0103)",
+          "Diagnostic": "Test respirator cu hidrogen, test de toleran\u021b\u0103 la lactoz\u0103, test genetic (LCT -13910 C/T)",
+          "Management": "Reducerea sau eliminarea lactozei, enzime de substitu\u021bie (lactaz\u0103 exogen\u0103), alternative vegetale fortificate cu calciu"
         },
-        tags: ["enzimopatie", "colon", "fermentație", "genetică"]
+        tags: ["enzimopatie", "colon", "fermenta\u021bie", "genetic\u0103"]
       },
       {
-        title: "Intoleranța la fructoză",
-        subtitle: "Malabsorbție intestinală",
-        icon: "🍎",
+        title: "Intoleran\u021ba la fructoz\u0103",
+        subtitle: "Malabsorb\u021bie intestinal\u0103",
+        icon: "\uD83C\uDF4E",
         color: "var(--green)",
-        description: "Malabsorbția fructozei apare când transportorii GLUT5 din intestinul subțire nu pot prelua fructoza eficient. Fructoza neabsorbită trece în colon și este fermentată bacterian. Nu trebuie confundată cu fructozemia ereditară (deficit de aldolază B), care este mult mai gravă.",
+        slug: "intoleranța-fructoza",
+        description: "Malabsorb\u021bia fructozei apare c\u00e2nd transportorii GLUT5 din intestinul sub\u021bire nu pot prelua fructoza eficient. Fructoza neabsorbit\u0103 trece \u00een colon \u0219i este fermentat\u0103 bacterian.",
         details: {
-          "Simptome": "Balonare, dureri abdominale, diaree, greață — dependente de doza ingerată",
-          "Mecanism": "Capacitate limitată a GLUT5, accentuată de raportul fructoză/glucoză dezechilibrat (fructoza liberă)",
-          "Diagnostic": "Test respirator cu hidrogen după administrare de fructoză",
-          "Management": "Reducerea fructozei libere, evitarea HFCS, consumul fructozei alături de glucoză care îi facilitează absorbția"
+          "Simptome": "Balonare, dureri abdominale, diaree, grea\u021b\u0103 \u2014 dependente de doza ingerat\u0103",
+          "Mecanism": "Capacitate limitat\u0103 a GLUT5, accentuat\u0103 de raportul fructoz\u0103/glucoz\u0103 dezechilibrat",
+          "Diagnostic": "Test respirator cu hidrogen dup\u0103 administrare de fructoz\u0103",
+          "Management": "Reducerea fructozei libere, evitarea HFCS, consumul fructozei al\u0103turi de glucoz\u0103"
         },
-        tags: ["GLUT5", "FODMAP", "fermentație", "intestin subțire"]
+        tags: ["GLUT5", "FODMAP", "fermenta\u021bie", "intestin sub\u021bire"]
       },
       {
-        title: "Sensibilitatea la gluten (non-celiacă)",
+        title: "Sensibilitatea la gluten (non-celiac\u0103)",
         subtitle: "NCGS",
-        icon: "🌾",
+        icon: "\uD83C\uDF3E",
         color: "var(--yellow)",
-        description: "Simptome digestive și extradigestive declanșate de ingestia de gluten, fără markerii serologici sau histologici ai bolii celiace și fără alergie la grâu. Mecanismul rămâne parțial elucidat — pot fi implicate ATI (inhibitorii tripsinei amilazei) și FODMAP-urile din grâu, nu doar glutenul per se.",
+        slug: "sensibilitatea-gluten",
+        description: "Simptome digestive \u0219i extradigestive declan\u0219ate de ingestia de gluten, f\u0103r\u0103 markerii serologici ai bolii celiace \u0219i f\u0103r\u0103 alergie la gr\u00e2u.",
         details: {
-          "Simptome": "Balonare, discomfort abdominal, oboseală, cefalee, \u00ABceață mentală\u00BB, dureri articulare",
-          "Mecanism": "Probabil imunitate înnăscută (nu adaptativă), posibil permeabilitate intestinală crescută, rolul ATI",
-          "Diagnostic": "De excludere: se elimină boala celiacă și alergia la grâu, apoi provocare orală dublu-orb",
-          "Management": "Dietă fără gluten pe perioadă determinată cu reintroducere treptată, evaluarea pragului individual de toleranță"
+          "Simptome": "Balonare, discomfort abdominal, oboseal\u0103, cefalee, cea\u021b\u0103 mental\u0103, dureri articulare",
+          "Mecanism": "Probabil imunitate \u00eenn\u0103scut\u0103 (nu adaptativ\u0103), posibil permeabilitate intestinal\u0103 crescut\u0103, rolul ATI",
+          "Diagnostic": "De excludere: se elimin\u0103 boala celiac\u0103 \u0219i alergia la gr\u00e2u, apoi provocare oral\u0103 dublu-orb",
+          "Management": "Diet\u0103 f\u0103r\u0103 gluten pe perioad\u0103 determinat\u0103 cu reintroducere treptat\u0103"
         },
         tags: ["gluten", "ATI", "FODMAP", "diagnostic de excludere"]
       }
     ]
   },
   {
-    category: "Boli funcționale",
+    category: "Boli func\u021bionale",
     items: [
       {
         title: "Sindromul de intestin iritabil (IBS)",
         subtitle: "Criterii Roma IV",
-        icon: "🌀",
+        icon: "\uD83C\uDF00",
         color: "var(--purple)",
-        description: "Tulburare funcțională cronică definită prin durere abdominală recurentă asociată cu modificarea tranzitului intestinal. Afectează 10–15% din populația globală. Axa intestin-creier joacă un rol central: stresul psihologic modulează motilitatea, sensibilitatea viscerală și microbiomul.",
+        slug: "ibs",
+        description: "Tulburare func\u021bional\u0103 cronic\u0103 definit\u0103 prin durere abdominal\u0103 recurent\u0103 asociat\u0103 cu modificarea tranzitului intestinal. Afecteaz\u0103 10\u201315% din popula\u021bia global\u0103.",
         details: {
-          "Subtipuri": "IBS-C (constipație), IBS-D (diaree), IBS-M (mixt), IBS-U (neclasificat)",
-          "Mecanism": "Hipersensibilitate viscerală, dismotilitate, disbioză, permeabilitate intestinală crescută, disfuncție axă intestin-creier",
-          "Diagnostic": "Criterii Roma IV: durere abdominală ≥1 zi/săptămână în ultimele 3 luni, asociată cu defecația, modificarea frecvenței sau a formei scaunului",
-          "Management": "Dietă low-FODMAP, fibre solubile, probiotice selecte, antispastice, neuromodulatoare, terapie cognitiv-comportamentală"
+          "Subtipuri": "IBS-C (constipa\u021bie), IBS-D (diaree), IBS-M (mixt), IBS-U (neclasificat)",
+          "Mecanism": "Hipersensibilitate visceral\u0103, dismotilitate, disbioz\u0103, disfunc\u021bie ax\u0103 intestin-creier",
+          "Diagnostic": "Criterii Roma IV: durere abdominal\u0103 \u22651 zi/s\u0103pt\u0103m\u00e2n\u0103 \u00een ultimele 3 luni",
+          "Management": "Diet\u0103 low-FODMAP, fibre solubile, probiotice selecte, antispastice, terapie cognitiv-comportamental\u0103"
         },
-        tags: ["funcțional", "axa intestin-creier", "FODMAP", "Roma IV"]
+        tags: ["func\u021bional", "axa intestin-creier", "FODMAP", "Roma IV"]
       },
       {
-        title: "Dispepsia funcțională",
-        subtitle: "Indigestia fără cauză organică",
-        icon: "😣",
+        title: "Dispepsia func\u021bional\u0103",
+        subtitle: "Indigestia f\u0103r\u0103 cauz\u0103 organic\u0103",
+        icon: "\uD83D\uDE23",
         color: "var(--cyan)",
-        description: "Disconfort sau durere în epigastru fără leziuni organice detectabile endoscopic. Se împarte în sindrom de distress postprandial (sațietate precoce, plenitudine) și sindrom dureros epigastric. Afectează 15–20% din populație și are impact major asupra calității vieții.",
+        slug: "dispepsia-functionala",
+        description: "Disconfort sau durere \u00een epigastru f\u0103r\u0103 leziuni organice detectabile endoscopic. Afecteaz\u0103 15\u201320% din popula\u021bie.",
         details: {
-          "Simptome": "Plenitudine postprandială, sațietate precoce, durere epigastrică, arsură epigastrică",
-          "Mecanism": "Golire gastrică întârziată, hipersensibilitate gastrică la distensie, inflamație duodenală de grad jos, infecție H. pylori",
-          "Diagnostic": "Criterii Roma IV + excluderea cauzelor organice prin endoscopie, testare H. pylori",
-          "Management": "IPP (inhibitori de pompă de protoni), prokinetice, eradicarea H. pylori dacă prezent, antidepresive triciclice în doze mici"
+          "Simptome": "Plenitudine postprandial\u0103, sa\u021bietate precoce, durere epigastric\u0103, arsur\u0103 epigastric\u0103",
+          "Mecanism": "Golire gastric\u0103 \u00eent\u00e2rziat\u0103, hipersensibilitate gastric\u0103, inflama\u021bie duodenal\u0103, infec\u021bie H. pylori",
+          "Diagnostic": "Criterii Roma IV + excluderea cauzelor organice prin endoscopie",
+          "Management": "IPP, prokinetice, eradicarea H. pylori dac\u0103 prezent, antidepresive triciclice \u00een doze mici"
         },
-        tags: ["funcțional", "epigastru", "H. pylori", "prokinetice"]
+        tags: ["func\u021bional", "epigastru", "H. pylori", "prokinetice"]
       }
     ]
   },
@@ -430,29 +450,31 @@ const DATA = [
     items: [
       {
         title: "Boala Crohn",
-        subtitle: "Inflamație transmurală segmentară",
-        icon: "🔥",
+        subtitle: "Inflama\u021bie transmural\u0103 segmentar\u0103",
+        icon: "\uD83D\uDD25",
         color: "var(--red)",
-        description: "Boală inflamatorie cronică ce poate afecta orice segment al tractului digestiv (de la gură la anus), cu predilecție pentru ileonul terminal și colonul drept. Inflamația este transmurală și segmentară (zone afectate alternând cu mucoasă normală). Evoluție cu pusee și remisiuni.",
+        slug: "boala-crohn",
+        description: "Boal\u0103 inflamatorie cronic\u0103 ce poate afecta orice segment al tractului digestiv, cu predilec\u021bie pentru ileonul terminal \u0219i colonul drept.",
         details: {
-          "Simptome": "Diaree cronică, durere abdominală (fosa iliacă dreaptă), scădere ponderală, febră, manifestări extraintestinale (articulare, cutanate, oculare)",
-          "Complicații": "Stricturi, fistule (entero-enterice, entero-cutanate, perianale), abcese, malabsorbție, risc crescut de cancer colorectal",
-          "Diagnostic": "Ileo-colonoscopie cu biopsie (granuloame non-cazeoase), entero-RMN, calprotectină fecală, markeri serologici (ASCA)",
-          "Management": "5-ASA, corticosteroizi (inducție), imunomodulatoare (azatioprină), terapii biologice (anti-TNFα, anti-integrine), nutriție enterală exclusivă, chirurgie"
+          "Simptome": "Diaree cronic\u0103, durere abdominal\u0103, sc\u0103dere ponderal\u0103, febr\u0103, manifest\u0103ri extraintestinale",
+          "Complica\u021bii": "Stricturi, fistule, abcese, malabsorb\u021bie, risc crescut de cancer colorectal",
+          "Diagnostic": "Ileo-colonoscopie cu biopsie, entero-RMN, calprotectin\u0103 fecal\u0103, ASCA",
+          "Management": "5-ASA, corticosteroizi, imunomodulatoare, terapii biologice (anti-TNF\u03b1), chirurgie"
         },
-        tags: ["IBD", "transmural", "granuloame", "anti-TNFα"]
+        tags: ["IBD", "transmural", "granuloame", "anti-TNF\u03b1"]
       },
       {
-        title: "Colita ulcerativă",
-        subtitle: "Inflamație continuă a mucoasei colonice",
-        icon: "🩸",
+        title: "Colita ulcerativ\u0103",
+        subtitle: "Inflama\u021bie continu\u0103 a mucoasei colonice",
+        icon: "\uD83E\uDE78",
         color: "var(--accent)",
-        description: "Inflamație cronică limitată la mucoasa colonului, care începe invariabil de la rect și se extinde proximal în mod continuu. Spre deosebire de boala Crohn, afectarea este superficială (mucoasă și submucoasă) și fără segmente de mucoasă normală intercalate.",
+        slug: "colita-ulcerativa",
+        description: "Inflama\u021bie cronic\u0103 limitat\u0103 la mucoasa colonului, care \u00eencepe invariabil de la rect \u0219i se extinde proximal \u00een mod continuu.",
         details: {
-          "Simptome": "Diaree sangvinolentă, tenesme rectale, urgență defecatorie, dureri abdominale colicative, anemie",
-          "Clasificare": "Proctită (rect), colită stângă (până la unghiul splenic), pancolită (întreg colonul)",
-          "Diagnostic": "Colonoscopie cu biopsii eșalonate (eritem, ulcerații, pseudopolipi), calprotectină fecală, pANCA",
-          "Management": "5-ASA (mesalazină — de primă linie), corticosteroizi, imunomodulatoare, biologice (anti-TNFα, anti-JAK), colectomie în cazuri refractare"
+          "Simptome": "Diaree sangvinolent\u0103, tenesme rectale, urgen\u021b\u0103 defecatorie, anemie",
+          "Clasificare": "Proctit\u0103 (rect), colit\u0103 st\u00e2ng\u0103, pancolit\u0103 (\u00eentreg colonul)",
+          "Diagnostic": "Colonoscopie cu biopsii e\u0219alonate, calprotectin\u0103 fecal\u0103, pANCA",
+          "Management": "5-ASA (mesalazin\u0103), corticosteroizi, biologice (anti-TNF\u03b1, anti-JAK), colectomie"
         },
         tags: ["IBD", "mucosal", "rect-proximal", "5-ASA"]
       }
@@ -462,66 +484,73 @@ const DATA = [
     category: "Patologii organice",
     items: [
       {
-        title: "Boala celiacă",
-        subtitle: "Enteropatie autoimună",
-        icon: "⚡",
+        title: "Boala celiac\u0103",
+        subtitle: "Enteropatie autoimun\u0103",
+        icon: "\u26A1",
         color: "var(--yellow)",
-        description: "Boală autoimună declanșată de ingestia de gluten la persoanele genetic predispuse (HLA-DQ2/DQ8). Glutenul provoacă un răspuns imun care distruge vilozitățile intestinului subțire, ducând la malabsorbție. Prevalența reală este 1% din populație, dar majoritatea cazurilor rămân nediagnosticate.",
+        slug: "boala-celiaca",
+        description: "Boal\u0103 autoimun\u0103 declan\u0219at\u0103 de ingestia de gluten la persoanele genetic predispuse (HLA-DQ2/DQ8), cu distrugerea vilozit\u0103\u021bilor intestinale.",
         details: {
-          "Simptome": "Diaree, steathoree, balonare, anemie feriprivă, osteoporoză, dermatită herpetiformă, neuropatie, infertilitate — spectru foarte larg",
-          "Mecanism": "Gliadina (fracțiune a glutenului) → deamidată de transglutaminaza tisulară → prezentată pe HLA-DQ2/8 → răspuns imun → atrofie vilozitară",
-          "Diagnostic": "Anti-tTG IgA + IgA totale (screening), biopsie duodenală (atrofie vilozitară Marsh 3), genotipare HLA-DQ2/DQ8",
-          "Management": "Dietă strict fără gluten pe viață (< 20 ppm), monitorizarea anticorpilor, suplimentare fier/calciu/vitamina D dacă deficitare"
+          "Simptome": "Diaree, steathoree, balonare, anemie feripriv\u0103, osteoporoz\u0103, dermatit\u0103 herpetiform\u0103",
+          "Mecanism": "Gliadina \u2192 deamidat\u0103 de transglutaminaza tisular\u0103 \u2192 HLA-DQ2/8 \u2192 r\u0103spuns imun \u2192 atrofie vilozitar\u0103",
+          "Diagnostic": "Anti-tTG IgA, biopsie duodenal\u0103 (Marsh 3), genotipare HLA-DQ2/DQ8",
+          "Management": "Diet\u0103 strict f\u0103r\u0103 gluten pe via\u021b\u0103 (< 20 ppm), monitorizare anticorpi, suplimentare"
         },
-        tags: ["autoimun", "HLA-DQ2/8", "atrofie vilozitară", "gluten"]
+        tags: ["autoimun", "HLA-DQ2/8", "atrofie vilozitar\u0103", "gluten"]
       },
       {
         title: "Boala de reflux gastroesofagian (BRGE)",
         subtitle: "Reflux acid cronic",
-        icon: "🫁",
+        icon: "\uD83E\uDEC1",
         color: "var(--cyan)",
-        description: "Refluxul conținutului gastric acid în esofag, depășind mecanismele de apărare ale mucoasei esofagiene. Sfincterul esofagian inferior (SEI) relaxat tranzitor sau incompetent este cauza principală. Prevalența în țările occidentale: 15–25%.",
+        slug: "brge",
+        description: "Refluxul con\u021binutului gastric acid \u00een esofag, dep\u0103\u0219ind mecanismele de ap\u0103rare ale mucoasei esofagiene. Prevalen\u021b\u0103: 15\u201325%.",
         details: {
-          "Simptome": "Pirozis (arsură retrosternală), regurgitare acidă, disfagie, tuse cronică, laringită, eroziuni dentare",
-          "Complicații": "Esofagita erozivă, stricturi esofagiene, esofagul Barrett (metaplazie intestinală — leziune precanceroasă), adenocarcinom esofagian",
-          "Diagnostic": "Clinic (pirozis tipic), endoscopie (esofagită, Barrett), pH-metrie esofagiană 24h, manometrie",
-          "Management": "Modificări ale stilului de viață (scădere ponderală, evitarea meselor tardive, ridicarea capătului patului), IPP, anti-H2, chirurgie antireflux (fundoplicatură Nissen)"
+          "Simptome": "Pirozis, regurgitare acid\u0103, disfagie, tuse cronic\u0103, laringit\u0103, eroziuni dentare",
+          "Complica\u021bii": "Esofagita eroziv\u0103, stricturi, esofagul Barrett (leziune precanceroas\u0103), adenocarcinom esofagian",
+          "Diagnostic": "Clinic, endoscopie, pH-metrie esofagian\u0103 24h, manometrie",
+          "Management": "Modific\u0103ri stil de via\u021b\u0103, IPP, anti-H2, fundoplicatur\u0103 Nissen"
         },
         tags: ["SEI", "pirozis", "Barrett", "IPP"]
       },
       {
-        title: "Ulcerul gastric și duodenal",
-        subtitle: "Boala ulceroasă peptică",
-        icon: "🕳️",
+        title: "Ulcerul gastric \u0219i duodenal",
+        subtitle: "Boala ulceroas\u0103 peptic\u0103",
+        icon: "\uD83D\uDD73\uFE0F",
         color: "var(--red)",
-        description: "Defect al mucoasei gastrice sau duodenale care depășește muscularis mucosae. Cauzele principale: infecția cu Helicobacter pylori (60–80%) și utilizarea cronică de AINS. Acidul gastric și pepsina agresează o mucoasă cu apărare compromisă.",
+        slug: "ulcerul-peptic",
+        description: "Defect al mucoasei gastrice sau duodenale. Cauze principale: H. pylori (60\u201380%) \u0219i AINS cronice.",
         details: {
-          "Simptome": "Durere epigastrică (gastric: agravată de alimente; duodenal: ameliorată de alimente, durere nocturnă), greață, hemoragie digestivă",
-          "Complicații": "Hemoragie (hematemeză, melenă), perforație, stenoză pilorică, malignizare (ulcerul gastric)",
-          "Diagnostic": "Endoscopie digestivă superioară cu biopsie, testare H. pylori (test respirator cu uree, antigen fecal, histologie)",
-          "Management": "Eradicarea H. pylori (triplă terapie: IPP + 2 antibiotice), oprirea AINS, IPP 4–8 săptămâni, verificare endoscopică a vindecării"
+          "Simptome": "Durere epigastric\u0103, grea\u021b\u0103, hemoragie digestiv\u0103",
+          "Complica\u021bii": "Hemoragie, perfora\u021bie, stenoz\u0103 piloric\u0103, malignizare",
+          "Diagnostic": "Endoscopie cu biopsie, testare H. pylori",
+          "Management": "Eradicare H. pylori (tripl\u0103 terapie), oprirea AINS, IPP 4\u20138 s\u0103pt\u0103m\u00e2ni"
         },
-        tags: ["H. pylori", "AINS", "peptică", "perforație"]
+        tags: ["H. pylori", "AINS", "peptic\u0103", "perfora\u021bie"]
       },
       {
-        title: "Pancreatita cronică",
-        subtitle: "Fibroză pancreatică progresivă",
-        icon: "🫀",
+        title: "Pancreatita cronic\u0103",
+        subtitle: "Fibroz\u0103 pancreatic\u0103 progresiv\u0103",
+        icon: "\uD83E\uDEC0",
         color: "var(--purple)",
-        description: "Inflamație cronică a pancreasului cu distrucție ireversibilă a parenchimului și înlocuire fibrotică. Funcția exocrină (enzime digestive) și endocrină (insulină) se deteriorează progresiv. Alcoolul cronic este cauza principală (70% din cazuri).",
+        slug: "pancreatita-cronica",
+        description: "Inflama\u021bie cronic\u0103 a pancreasului cu distruc\u021bie ireversibil\u0103 a parenchimului. Alcoolul cronic este cauza principal\u0103 (70%).",
         details: {
-          "Simptome": "Durere abdominală persistentă epigastrică cu iradiere \u00ABîn bară\u00BB dorsal, steatoree, scădere ponderală, diabet zaharat secundar",
-          "Mecanism": "Alcool, fumat, mutații genetice (PRSS1, SPINK1, CFTR), autoimun, obstructiv — necroză-fibroză recurentă → insuficiență pancreatică",
-          "Diagnostic": "CT/RMN (calcificări, atrofie, dilatări ductale), elastază fecală-1 (funcție exocrină), ecoendoscopie",
-          "Management": "Abstinență alcool + fumat, enzime pancreatice de substituție (PERT), analgezie escaladat, managementul diabetului, stentare endoscopică sau chirurgie"
+          "Simptome": "Durere abdominal\u0103 epigastric\u0103 cu iradiere dorsal\u0103, steatoree, diabet secundar",
+          "Mecanism": "Alcool, fumat, muta\u021bii genetice (PRSS1, SPINK1, CFTR), autoimun",
+          "Diagnostic": "CT/RMN, elastaz\u0103 fecal\u0103-1, ecoendoscopie",
+          "Management": "Abstinen\u021b\u0103, enzime pancreatice (PERT), analgezie, management diabet"
         },
-        tags: ["fibroză", "exocrin", "endocrin", "PERT"]
+        tags: ["fibroz\u0103", "exocrin", "endocrin", "PERT"]
       }
     ]
   }
 ];
 
-// Build categories nav
+// Arrow SVG for the detail link
+const ARROW_SVG = '<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+
+// Build nav
 const nav = document.getElementById('nav');
 const categories = ['Toate', ...DATA.map(d => d.category)];
 categories.forEach((cat, i) => {
@@ -545,35 +574,32 @@ function renderCards(filter) {
       const card = document.createElement('div');
       card.className = 'card';
       card.style.setProperty('--card-color', item.color);
-      card.style.animationDelay = `${delay * 0.07}s`;
+      card.style.animationDelay = delay * 0.07 + 's';
       delay++;
 
-      const detailsHTML = Object.entries(item.details).map(([k, v]) => `
-        <div class="detail-box">
-          <div class="detail-label">${k}</div>
-          <div class="detail-value">${v}</div>
-        </div>
-      `).join('');
+      const detailsHTML = Object.entries(item.details).map(([k, v]) =>
+        '<div class="detail-box"><div class="detail-label">' + k + '</div><div class="detail-value">' + v + '</div></div>'
+      ).join('');
 
-      const tagsHTML = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+      const tagsHTML = item.tags.map(t => '<span class="tag">' + t + '</span>').join('');
 
-      card.innerHTML = `
-        <div class="card-header">
-          <div class="card-icon">${item.icon}</div>
-          <div class="card-title-block">
-            <div class="card-title">${item.title}</div>
-            <div class="card-subtitle">${item.subtitle}</div>
-          </div>
-          <div class="card-toggle">+</div>
-        </div>
-        <div class="card-body">
-          <div class="card-content">
-            <p>${item.description}</p>
-            <div class="detail-grid">${detailsHTML}</div>
-            <div class="tag-row">${tagsHTML}</div>
-          </div>
-        </div>
-      `;
+      card.innerHTML =
+        '<div class="card-header">' +
+          '<div class="card-icon">' + item.icon + '</div>' +
+          '<div class="card-title-block">' +
+            '<div class="card-title">' + item.title + '</div>' +
+            '<div class="card-subtitle">' + item.subtitle + '</div>' +
+          '</div>' +
+          '<div class="card-toggle">+</div>' +
+        '</div>' +
+        '<div class="card-body">' +
+          '<div class="card-content">' +
+            '<p>' + item.description + '</p>' +
+            '<div class="detail-grid">' + detailsHTML + '</div>' +
+            '<div class="tag-row">' + tagsHTML + '</div>' +
+            '<a class="card-link" href="' + item.slug + '.html">Detalii complete ' + ARROW_SVG + '</a>' +
+          '</div>' +
+        '</div>';
 
       card.querySelector('.card-header').addEventListener('click', () => {
         card.classList.toggle('open');
@@ -587,7 +613,7 @@ function renderCards(filter) {
 function filterCards(cat, btn) {
   document.querySelectorAll('.anatomy-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  label.textContent = cat === 'Toate' ? '— Toate patologiile' : `— ${cat}`;
+  label.textContent = cat === 'Toate' ? '\u2014 Toate patologiile' : '\u2014 ' + cat;
   label.style.animation = 'none';
   label.offsetHeight;
   label.style.animation = 'fadeUp 0.4s ease forwards';
