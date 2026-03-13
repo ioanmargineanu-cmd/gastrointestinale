@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intoleran&#x021B;a la lactoz&#x103; &mdash; Patologii GI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0f14;
+    --surface: #141820;
+    --surface-hover: #1a2030;
+    --border: #252d3d;
+    --text: #d4dae6;
+    --text-dim: #7a8499;
+    --accent: #e8734a;
+    --accent-glow: rgba(232, 115, 74, 0.15);
+    --color: #5b8fd9;
+    --color-glow: rgba(91, 143, 217, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  a { color: var(--color); text-decoration: none; }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  .back-link svg {
+    width: 16px; height: 16px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* Hero */
+  .detail-hero {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 2rem 2.5rem;
+    position: relative;
+  }
+
+  .detail-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-icon {
+    width: 60px; height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    background: color-mix(in srgb, var(--color) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color) 25%, transparent);
+    flex-shrink: 0;
+  }
+
+  .hero-titles h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .hero-titles .subtitle {
+    font-size: 0.95rem;
+    color: var(--color);
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+
+  .hero-intro {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 720px;
+  }
+
+  /* Content sections */
+  .content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .section {
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.12s; }
+  .section:nth-child(3) { animation-delay: 0.19s; }
+  .section:nth-child(4) { animation-delay: 0.26s; }
+  .section:nth-child(5) { animation-delay: 0.33s; }
+  .section:nth-child(6) { animation-delay: 0.40s; }
+  .section:nth-child(7) { animation-delay: 0.47s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--color);
+    background: color-mix(in srgb, var(--color) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color) 20%, transparent);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .section-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem;
+  }
+
+  .section-body p {
+    margin-bottom: 0.8rem;
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* Highlight boxes inside sections */
+  .highlight {
+    background: color-mix(in srgb, var(--color) 6%, var(--bg));
+    border-left: 3px solid var(--color);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .highlight strong {
+    color: var(--color);
+  }
+
+  /* Two-column info grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 550px) { .info-grid { grid-template-columns: 1fr; } }
+
+  .info-card {
+    background: color-mix(in srgb, var(--color) 5%, var(--bg));
+    border: 1px solid color-mix(in srgb, var(--color) 12%, transparent);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+  }
+
+  .info-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color);
+    margin-bottom: 0.35rem;
+  }
+
+  .info-card-value {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Prevalence bar */
+  .prev-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+  }
+
+  .prev-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .prev-bar-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    width: 140px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .prev-bar-track {
+    flex: 1;
+    height: 22px;
+    background: color-mix(in srgb, var(--color) 8%, var(--bg));
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .prev-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--color), color-mix(in srgb, var(--color) 60%, #fff));
+    transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--bg);
+  }
+
+  /* Tags */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 99px;
+    font-weight: 600;
+    background: color-mix(in srgb, var(--color) 10%, transparent);
+    color: var(--color);
+    border: 1px solid color-mix(in srgb, var(--color) 18%, transparent);
+  }
+
+  /* Footer nav */
+  .footer-nav {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+  }
+
+  .footer-btn:hover {
+    color: #fff;
+    border-color: var(--color);
+    background: color-mix(in srgb, var(--color) 10%, transparent);
+  }
+
+  .footer-btn svg {
+    width: 14px; height: 14px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+  }
+
+  .footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">
+  <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  Toate patologiile
+</a>
+
+<div class="detail-hero">
+  <div class="hero-top">
+    <div class="hero-icon">&#x1F95B;</div>
+    <div class="hero-titles">
+      <h1>Intoleran&#x021B;a la lactoz&#x103;</h1>
+      <div class="subtitle">Deficit de lactaz&#x103; &mdash; enzimopatie intestinal&#x103;</div>
+    </div>
+  </div>
+  <p class="hero-intro">
+    Intoleran&#x021B;a la lactoz&#x103; este incapacitatea de a digera lactoza &mdash; dizaharidul principal din lapte &mdash; din cauza activit&#x103;&#x021B;ii reduse a enzimei lactaz&#x103; (&#x3B2;-galactozidaz&#x103;) la nivelul marginii &#x00EE;n perie a enterocitelor din intestinul sub&#x021B;ire. Lactoza nedigerat&#x103; trece &#x00EE;n colon, unde este fermentat&#x103; de microbiota rezident&#x103;, produc&#x00E2;nd gaze (H&#x2082;, CO&#x2082;, CH&#x2084;), acizi gra&#x0219;i cu lan&#x021B; scurt &#x0219;i un efect osmotic care atrage ap&#x103; &#x00EE;n lumenul intestinal.
+  </p>
+</div>
+
+<div class="content">
+
+  <!-- 01 CLASIFICARE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Clasificare</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Primar&#x103; (genetic&#x103;)</div>
+          <div class="info-card-value">Sc&#x103;derea programat&#x103; genetic a expresiei lactazei dup&#x103; &#x00EE;n&#x021B;&#x103;rcare. Este forma cea mai frecvent&#x103;. Gena LCT de pe cromozomul 2 este reglat&#x103; de polimorfismul C/T&#x2011;13910: varianta C (ancestral&#x103;) duce la non-persisten&#x021B;a lactazei, iar varianta T (mutant&#x103;) men&#x021B;ine expresia enzimei la maturitate.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Secundar&#x103;</div>
+          <div class="info-card-value">Apare ca urmare a unei leziuni a mucoasei intestinale (boal&#x103; celiac&#x103;, Crohn, gastroenterit&#x103; infec&#x021B;ioas&#x103;, chimioterapie). Poate fi reversibil&#x103; dup&#x103; tratarea afec&#x021B;iunii de baz&#x103;, pe m&#x103;sur&#x103; ce enterocitele se regenereaz&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Congenital&#x103;</div>
+          <div class="info-card-value">Extrem de rar&#x103;. Deficien&#x021B;&#x103; total&#x103; de lactaz&#x103; din na&#x0219;tere, cu transmitere autozomal recesiv&#x103;. Necesit&#x103; eliminarea complet&#x103; a lactozei din alimenta&#x021B;ie &#x00EE;nc&#x103; din perioada neonatal&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">De dezvoltare</div>
+          <div class="info-card-value">&#x00CE;nt&#x00E2;lnit&#x103; la prematuri (n&#x103;scu&#x021B;i &#x00EE;nainte de s&#x103;pt&#x103;m&#x00E2;na 34), la care activitatea lactazei nu a atins &#x00EE;nc&#x103; nivelul maxim. Se rezolv&#x103; spontan pe m&#x103;sur&#x103; ce intestinul matureaz&#x103;.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PREVALENTA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Prevalen&#x021B;&#x103; global&#x103;</h2>
+    </div>
+    <div class="section-body">
+      <p>Aproximativ 65&ndash;70% din popula&#x021B;ia adult&#x103; a planetei are o capacitate redus&#x103; de a digera lactoza. Distribu&#x021B;ia este puternic influen&#x021B;at&#x103; de istoria genetic&#x103; &#x0219;i pastoral&#x103; a popula&#x021B;iilor:</p>
+      <div class="prev-bars">
+        <div class="prev-bar">
+          <span class="prev-bar-label">Asia de Est</span>
+          <div class="prev-bar-track"><div class="prev-bar-fill" style="width: 90%;">90%</div></div>
+        </div>
+        <div class="prev-bar">
+          <span class="prev-bar-label">Africa sub-saharian&#x103;</span>
+          <div class="prev-bar-track"><div class="prev-bar-fill" style="width: 75%;">~75%</div></div>
+        </div>
+        <div class="prev-bar">
+          <span class="prev-bar-label">America Latin&#x103;</span>
+          <div class="prev-bar-track"><div class="prev-bar-fill" style="width: 65%;">~65%</div></div>
+        </div>
+        <div class="prev-bar">
+          <span class="prev-bar-label">Europa de Sud</span>
+          <div class="prev-bar-track"><div class="prev-bar-fill" style="width: 40%;">~40%</div></div>
+        </div>
+        <div class="prev-bar">
+          <span class="prev-bar-label">Rom&#x00E2;nia (estimat)</span>
+          <div class="prev-bar-track"><div class="prev-bar-fill" style="width: 35%;">~30&ndash;40%</div></div>
+        </div>
+        <div class="prev-bar">
+          <span class="prev-bar-label">Europa de Nord</span>
+          <div class="prev-bar-track"><div class="prev-bar-fill" style="width: 5%;">~5%</div></div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>De ce diferen&#x021B;a?</strong> Popula&#x021B;iile cu tradi&#x021B;ie pastoral&#x103; &#x00EE;ndelungat&#x103; (cre&#x0219;terea animalelor de lapte) au dezvoltat persisten&#x021B;a lactazei ca avantaj selectiv &mdash; o muta&#x021B;ie ap&#x103;rut&#x103; acum ~7.500 de ani &#x00EE;n Europa central&#x103; &#x0219;i independent &#x00EE;n Africa de Est.
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 FIZIOPATOLOGIE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Fiziopatologie</h2>
+    </div>
+    <div class="section-body">
+      <p>Lactoza este un dizaharid format din glucoz&#x103; &#x0219;i galactoz&#x103;, unit prin leg&#x103;tur&#x103; &#x3B2;-1,4-glicozidic&#x103;. &#x00CE;n mod normal, lactaza de pe marginea &#x00EE;n perie a jejunului scindez&#x103; lactoza &#x00EE;n cele dou&#x103; monozaharide, care sunt apoi absorbite prin transportorii SGLT1 (glucoz&#x103;) &#x0219;i GLUT5/GLUT2.</p>
+      <p>C&#x00E2;nd activitatea lactazei este insuficient&#x103;, lactoza r&#x103;m&#x00E2;ne intact&#x103; &#x00EE;n lumenul intestinal &#x0219;i produce dou&#x103; efecte:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Efect osmotic</div>
+          <div class="info-card-value">Lactoza nedigerat&#x103; atrage ap&#x103; &#x00EE;n lumenul intestinal prin osmoticitate, accelereaz&#x103; tranzitul &#x0219;i produce diaree apoas&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Fermenta&#x021B;ie colonic&#x103;</div>
+          <div class="info-card-value">Bacteriile colonice fermenteaz&#x103; lactoza produc&#x00E2;nd H&#x2082;, CO&#x2082;, CH&#x2084; (gaze) &#x0219;i acizi gra&#x0219;i cu lan&#x021B; scurt (SCFA). Gazele cauzeaz&#x103; balonare &#x0219;i flatulen&#x021B;&#x103;, iar SCFA sc&#x103;derea pH-ului fecal.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Important:</strong> Cantitatea de lactoz&#x103; tolerat&#x103; variaz&#x103; individual. Mul&#x021B;i oameni cu hipolactazie tolereaz&#x103; 12&ndash;15 g de lactoz&#x103; pe zi (echivalentul unui pahar de lapte) f&#x103;r&#x103; simptome semnificative, mai ales dac&#x103; este consumat&#x103; &#x00EE;n cadrul unei mese.
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SIMPTOME -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Tablou clinic</h2>
+    </div>
+    <div class="section-body">
+      <p>Simptomele apar de obicei la 30 de minute p&#x00E2;n&#x103; la 2 ore dup&#x103; ingestia de produse cu lactoz&#x103; &#x0219;i depind de cantitatea ingerat&#x103;, de gradul de deficit enzimatic &#x0219;i de compozi&#x021B;ia microbiomului:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Digestive</div>
+          <div class="info-card-value">Balonare abdominal&#x103;, crampe, flatulen&#x021B;&#x103; excesiv&#x103;, diaree apoas&#x103; (rar steatoree), borborisme (zgomote intestinale), grea&#x021B;&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Extradigestive (mai rare)</div>
+          <div class="info-card-value">Cefalee, dificultate de concentrare, oboseal&#x103; &mdash; posibil legate de produc&#x021B;ia de metaboli&#x021B;i bacterieni sau de r&#x103;spunsul sistemic la disconfortul digestiv.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Aten&#x021B;ie la confuzii:</strong> Simptomele se suprapun semnificativ cu cele din IBS, SIBO, intoleran&#x021B;a la fructoz&#x103; &#x0219;i sensibilitatea la gluten non-celiac&#x103;. Diagnosticul diferen&#x021B;ial este esen&#x021B;ial &#x00EE;nainte de a exclude lactoza din alimenta&#x021B;ie.
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 DIAGNOSTIC -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Diagnostic</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Test respirator cu H&#x2082;</div>
+          <div class="info-card-value">Gold standard. Se administreaz&#x103; 25&ndash;50 g lactoz&#x103; oral, apoi se m&#x103;soar&#x103; hidrogenul expirat la fiecare 30 min timp de 3&ndash;4 ore. O cre&#x0219;tere &gt;20 ppm fa&#x021B;&#x103; de valoarea bazal&#x103; indic&#x103; malabsorb&#x021B;ie.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Test genetic (LCT -13910 C/T)</div>
+          <div class="info-card-value">Identific&#x103; genotipul C/C (non-persisten&#x021B;a lactazei) prin recoltare de s&#x00E2;nge sau tampon bucal. Util pentru forma primar&#x103;, dar nu detecteaz&#x103; deficitul secundar.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Test de toleran&#x021B;&#x103; la lactoz&#x103;</div>
+          <div class="info-card-value">Se administreaz&#x103; lactoz&#x103; oral &#x0219;i se m&#x103;soar&#x103; glicemia la 30 min. O cre&#x0219;tere &lt;20 mg/dL sugereaz&#x103; malabsorb&#x021B;ie. Mai pu&#x021B;in specific dec&#x00E2;t testul respirator.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Biopsie intestinal&#x103;</div>
+          <div class="info-card-value">M&#x103;soar&#x103; direct activitatea lactazei din mucoasa jejunal&#x103;. Invaziv, folosit rar &#x00EE;n practic&#x103;, de obicei &#x00EE;n contextul unei endoscopii efectuate din alt motiv.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 MANAGEMENT -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Management</h2>
+    </div>
+    <div class="section-body">
+      <p>Scopul nu este eliminarea complet&#x103; a lactatelor, ci g&#x103;sirea pragului individual de toleran&#x021B;&#x103; &#x0219;i adaptarea alimenta&#x021B;iei &#x00EE;n consecin&#x021B;&#x103;:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Adaptare dietetic&#x103;</div>
+          <div class="info-card-value">Produsele lactate fermentate (iaurt, kefir, br&#x00E2;nzeturi maturate) con&#x021B;in lactoz&#x103; redus&#x103; &#x0219;i sunt adesea bine tolerate. Laptele se tolereaz&#x103; mai bine &#x00EE;n cadrul unei mese dec&#x00E2;t singur, &#x00EE;n cantit&#x103;&#x021B;i mici frac&#x021B;ionate.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Lactaz&#x103; exogen&#x103;</div>
+          <div class="info-card-value">Suplimente cu &#x3B2;-galactozidaz&#x103; (tablete sau pic&#x103;turi), administrate &#x00EE;nainte de consumul de lactoz&#x103;. Eficien&#x021B;a variaz&#x103;; func&#x021B;ioneaz&#x103; mai bine pentru cantit&#x103;&#x021B;i moderate de lactoz&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Produse f&#x103;r&#x103; lactoz&#x103;</div>
+          <div class="info-card-value">Lapte cu lactaz&#x103; ad&#x103;ugat&#x103; industrial (lactoza este pre-scindat&#x103;). P&#x103;streaz&#x103; valoarea nutri&#x021B;ional&#x103; a laptelui inclusiv calciul &#x0219;i proteina.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Alternative vegetale</div>
+          <div class="info-card-value">B&#x103;uturi din soia, ovaz, migdale &mdash; important s&#x103; fie fortificate cu calciu (&#x2265;120 mg/100 ml) &#x0219;i vitamina D pentru a compensa aportul pierdut din lactate.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Aten&#x021B;ie la calciu:</strong> Eliminarea lactatelor f&#x103;r&#x103; compensare cre&#x0219;te riscul de osteopenie/osteoporoz&#x103;, mai ales la femei dup&#x103; 45 de ani. Necesarul zilnic: 1.000&ndash;1.200 mg calciu.
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 LACTOZA ASCUNSA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">07</span>
+      <h2 class="section-title">Lactoza ascuns&#x103;</h2>
+    </div>
+    <div class="section-body">
+      <p>Lactoza este folosit&#x103; ca excipient &#x00EE;n multe produse unde nu te-ai a&#x0219;tepta s&#x103; o g&#x103;se&#x0219;ti:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Medicamente</div>
+          <div class="info-card-value">Peste 20% din medicamentele din comer&#x021B; con&#x021B;in lactoz&#x103; ca excipient. Cantitatea este de obicei mic&#x103; (&lt;1 g per doz&#x103;), dar poate conta &#x00EE;n deficitul sever.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Alimente procesate</div>
+          <div class="info-card-value">Mezeluri, pate&#x00EE;n, praf de budinca, ciocolat&#x103;, chipsuri cu arome, produse de panifica&#x021B;ie, margar&#x00EE;n&#x103;, sosuri cremoa&#x0219;e, dressing-uri.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Regula de aur:</strong> Citirea etichetelor. Lactoza poate ap&#x103;rea &#x0219;i sub denumirile: zer, cazeina&#x021B;i, solide de lapte, lapte praf, concentrat proteic din zer.
+      </div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">enzimopatie</span>
+    <span class="tag">lactaz&#x103;</span>
+    <span class="tag">LCT -13910</span>
+    <span class="tag">colon</span>
+    <span class="tag">fermenta&#x021B;ie</span>
+    <span class="tag">calciu</span>
+    <span class="tag">test respirator H&#x2082;</span>
+    <span class="tag">FODMAP</span>
+  </div>
+</div>
+
+<div class="footer-nav">
+  <a class="footer-btn" href="index.html">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Toate patologiile
+  </a>
+  <a class="footer-btn" href="intoleran%C8%9Ba-fructoza.html">
+    Intoleran&#x021B;a la fructoz&#x103;
+    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</div>
+
+<div class="footer">Con&#x021B;inut educa&#x021B;ional &bull; <span>Abona&#x021B;i la S&#x103;n&#x103;tate</span></div>
+
+</body>
+</html>
