@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ulcerul peptic &mdash; Patologii GI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0c0f14; --surface: #141820; --border: #252d3d; --text: #d4dae6; --text-dim: #7a8499; --accent: #e8734a; --color: #d95b6a; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Source Sans 3', sans-serif; line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; }
+  a { color: var(--color); text-decoration: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.5rem 2rem; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); transition: color 0.2s; } .back-link:hover { color: var(--accent); }
+  .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .detail-hero { max-width: 820px; margin: 0 auto; padding: 0 2rem 2.5rem; position: relative; }
+  .detail-hero::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .hero-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem; }
+  .hero-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: color-mix(in srgb, var(--color) 12%, transparent); border: 1px solid color-mix(in srgb, var(--color) 25%, transparent); flex-shrink: 0; }
+  .hero-titles h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 900; color: #fff; line-height: 1.2; }
+  .hero-titles .subtitle { font-size: 0.95rem; color: var(--color); font-weight: 600; margin-top: 0.2rem; }
+  .hero-intro { font-size: 1.05rem; line-height: 1.8; max-width: 720px; }
+  .content { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .section { margin-bottom: 2.5rem; opacity: 0; transform: translateY(12px); animation: fadeUp 0.5s ease forwards; }
+  .section:nth-child(1) { animation-delay: 0.05s; } .section:nth-child(2) { animation-delay: 0.12s; } .section:nth-child(3) { animation-delay: 0.19s; } .section:nth-child(4) { animation-delay: 0.26s; } .section:nth-child(5) { animation-delay: 0.33s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .section-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); border: 1px solid color-mix(in srgb, var(--color) 20%, transparent); padding: 0.2rem 0.55rem; border-radius: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .section-body { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.5rem; }
+  .section-body p { margin-bottom: 0.8rem; font-size: 0.93rem; line-height: 1.75; } .section-body p:last-child { margin-bottom: 0; }
+  .highlight { background: color-mix(in srgb, var(--color) 6%, var(--bg)); border-left: 3px solid var(--color); border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.9rem; line-height: 1.7; } .highlight strong { color: var(--color); }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.5rem; }
+  @media (max-width: 550px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: color-mix(in srgb, var(--color) 5%, var(--bg)); border: 1px solid color-mix(in srgb, var(--color) 12%, transparent); border-radius: 8px; padding: 0.8rem 1rem; }
+  .info-card-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color); margin-bottom: 0.35rem; }
+  .info-card-value { font-size: 0.85rem; line-height: 1.6; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .tag { font-size: 0.7rem; padding: 0.25rem 0.65rem; border-radius: 99px; font-weight: 600; background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--color); border: 1px solid color-mix(in srgb, var(--color) 18%, transparent); }
+  .footer-nav { max-width: 820px; margin: 0 auto; padding: 0 2rem 3rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .footer-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); border: 1px solid var(--border); transition: all 0.25s; }
+  .footer-btn:hover { color: #fff; border-color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); }
+  .footer-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.75rem; } .footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+<a class="back-link" href="index.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Toate patologiile</a>
+
+<div class="detail-hero">
+  <div class="hero-top">
+    <div class="hero-icon">&#x1F573;&#xFE0F;</div>
+    <div class="hero-titles">
+      <h1>Ulcerul gastric &#x0219;i duodenal</h1>
+      <div class="subtitle">Boala ulceroas&#x103; peptic&#x103;</div>
+    </div>
+  </div>
+  <p class="hero-intro">Ulcerul peptic este un defect al mucoasei gastrice sau duodenale care dep&#x103;&#x0219;e&#x0219;te muscularis mucosae. Apare c&#x00E2;nd factorii agresivi (acid clorhidric, pepsin&#x103;) dep&#x103;&#x0219;esc factorii de ap&#x103;rare ai mucoasei (mucus, bicarbonat, flux sangvin). Cele dou&#x103; cauze principale sunt infec&#x021B;ia cu Helicobacter pylori (60&ndash;80%) &#x0219;i utilizarea cronic&#x103; de AINS.</p>
+</div>
+
+<div class="content">
+  <div class="section">
+    <div class="section-header"><span class="section-number">01</span><h2 class="section-title">H. pylori &mdash; protagonistul</h2></div>
+    <div class="section-body">
+      <p>Helicobacter pylori este o bacterie gram-negativ&#x103; spiralat&#x103; care colonizeaz&#x103; mucoasa gastric&#x103; a ~50% din popula&#x021B;ia global&#x103;. Descoperirea rolului s&#x103;u (Marshall &#x0219;i Warren, Nobel 2005) a revolu&#x021B;ionat gastroenterologia.</p>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Mecanism de supravie&#x021B;uire</div><div class="info-card-value">Produce ureaz&#x103; care descompune ureea &#x00EE;n amoniac + CO&#x2082;, cre&#x00E2;nd un micromediu alcalin protector. Flagelele &#x00EE;i permit deplasarea &#x00EE;n stratul de mucus. CagA &#x0219;i VacA sunt factori de virulen&#x021B;&#x103; care amplific&#x103; inflama&#x021B;ia.</div></div>
+        <div class="info-card"><div class="info-card-label">Consecin&#x021B;e</div><div class="info-card-value">Gastrit&#x103; cronic&#x103; (100%), ulcer duodenal (10&ndash;15%), ulcer gastric (5%), adenocarcinom gastric (1&ndash;3%), limfom MALT (&lt;0.1%). Evolu&#x021B;ia depinde de tulpina bacterian&#x103; &#x0219;i de r&#x103;spunsul gazdei.</div></div>
+        <div class="info-card"><div class="info-card-label">Ulcer duodenal vs. gastric</div><div class="info-card-value">Duodenal: H. pylori colonizeaz&#x103; antrul &#x2192; cre&#x0219;te gastrina &#x2192; hipersecre&#x021B;ie acid&#x103; &#x2192; metaplazie gastric&#x103; duodenal&#x103; &#x2192; colonizare duodenal&#x103; &#x2192; ulcer. Gastric: pangastrit&#x103; atrofic&#x103; &#x2192; reducerea ap&#x103;r&#x103;rii mucoasei &#x2192; ulcer.</div></div>
+        <div class="info-card"><div class="info-card-label">AINS &mdash; al doilea vinovat</div><div class="info-card-value">Inhib&#x103; COX-1 &#x2192; reducerea prostaglandinelor protectoare &#x2192; sc&#x103;derea secre&#x021B;iei de mucus &#x0219;i bicarbonat, sc&#x103;derea fluxului sangvin mucosal. Risc maxim: AINS + H. pylori + v&#x00E2;rsta + anticoagulante.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">02</span><h2 class="section-title">Tablou clinic</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Ulcer duodenal</div><div class="info-card-value">Durere epigastric&#x103; &laquo;de foame&raquo;: ameliorat&#x103; de alimente &#x0219;i antiacide, agravat&#x103; pe stomacul gol. Durere nocturn&#x103; (trezire la 1&ndash;3 AM). Periodicitate sezonier&#x103; (prim&#x103;var&#x103;/toamn&#x103;).</div></div>
+        <div class="info-card"><div class="info-card-label">Ulcer gastric</div><div class="info-card-value">Durere epigastric&#x103; agravat&#x103; de alimente. Anorexie, sc&#x103;dere ponderal&#x103;, grea&#x021B;&#x103;. Necesit&#x103; &#x00EE;ntotdeauna biopsie endoscopic&#x103; (pentru excluderea malignit&#x103;&#x021B;ii).</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">03</span><h2 class="section-title">Complica&#x021B;ii</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Hemoragie digestiv&#x103;</div><div class="info-card-value">Cea mai frecvent&#x103; complica&#x021B;ie (15&ndash;20%). Hematemeză (v&#x103;rs&#x103;turi cu s&#x00E2;nge sau &laquo;za&#x021B; de cafea&raquo;), melen&#x103; (scaune negre, gudronate). Mortalitate: 5&ndash;10%. Clasificare Forrest pentru riscul de res&#x00E2;ngerare.</div></div>
+        <div class="info-card"><div class="info-card-label">Perfora&#x021B;ie</div><div class="info-card-value">Urgen&#x021B;&#x103; chirurgical&#x103;. Durere epigastric&#x103; brutal&#x103; &laquo;&#x00EE;n pumnal&raquo;, abdomen &laquo;de lemn&raquo; (contractur&#x103; muscular&#x103;), pneumoperitoneu. Rx abdomen: aer liber subdiafragmatic. Tratament: chirurgie de urgen&#x021B;&#x103;.</div></div>
+        <div class="info-card"><div class="info-card-label">Stenoz&#x103; piloric&#x103;</div><div class="info-card-value">Obstruc&#x021B;ia pilorului prin edem/fibroz&#x103; de la ulcerul duodenal. V&#x103;rs&#x103;turi alimentare tardive (alimente neprelucrate din masa anterioar&#x103;), sa&#x021B;ietate precoce, sc&#x103;dere ponderal&#x103;.</div></div>
+        <div class="info-card"><div class="info-card-label">Malignizare</div><div class="info-card-value">Risc doar pentru ulcerul gastric (nu duodenal). De aceea orice ulcer gastric necesit&#x103; biopsie la diagnostic &#x0219;i verificare endoscopic&#x103; a vindec&#x103;rii la 6&ndash;8 s&#x103;pt&#x103;m&#x00E2;ni.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">04</span><h2 class="section-title">Diagnostic</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Endoscopie</div><div class="info-card-value">Gold standard. Vizualizeaz&#x103; ulcerul, permite biopsia (Hp + histologie), evalueaz&#x103; complica&#x021B;iile. Indicat&#x103; la &gt;50 ani, semne de alarm&#x103;, sau e&#x0219;ec la terapie.</div></div>
+        <div class="info-card"><div class="info-card-label">Test respirator cu &#x00B9;&#x00B3;C-uree</div><div class="info-card-value">Sensibilitate &#x0219;i specificitate &gt;95% pentru H. pylori. Non-invaziv. Se opre&#x0219;te IPP cu &#x2265;2 s&#x103;pt&#x103;m&#x00E2;ni &#x0219;i antibiotice cu &#x2265;4 s&#x103;pt&#x103;m&#x00E2;ni &#x00EE;nainte de test.</div></div>
+        <div class="info-card"><div class="info-card-label">Antigen fecal H. pylori</div><div class="info-card-value">Alternativ&#x103; la testul respirator, sensibilitate similar&#x103;. Util &#x0219;i pentru confirmarea eradic&#x103;rii la &#x2265;4 s&#x103;pt&#x103;m&#x00E2;ni dup&#x103; terminarea tratamentului.</div></div>
+        <div class="info-card"><div class="info-card-label">Biopsie (CLO test)</div><div class="info-card-value">Test rapid de ureaz&#x103; pe biopsia gastric&#x103;. Rezultat &#x00EE;n 1&ndash;24h. Se face &#x00EE;n timpul endoscopiei.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">05</span><h2 class="section-title">Management</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Eradicarea H. pylori</div><div class="info-card-value">Tripl&#x103; terapie clasic&#x103;: IPP + claritromicin&#x103; + amoxicilin&#x103; (14 zile). &#x00CE;n zonele cu rezisten&#x021B;&#x103; la claritromicin&#x103; &gt;15%: cvadrupl&#x103; terapie cu bismut (IPP + bismut + metronidazol + tetraciclin&#x103;).</div></div>
+        <div class="info-card"><div class="info-card-label">Confirmare eradicare</div><div class="info-card-value">Test respirator sau antigen fecal la &#x2265;4 s&#x103;pt&#x103;m&#x00E2;ni dup&#x103; terminarea antibioticelor &#x0219;i &#x2265;2 s&#x103;pt. f&#x103;r&#x103; IPP. Rata de eradicare cu tripl&#x103; terapie: 70&ndash;85%; cu cvadrupl&#x103;: 85&ndash;95%.</div></div>
+        <div class="info-card"><div class="info-card-label">Tratament antisecretor</div><div class="info-card-value">IPP doz&#x103; standard pe 4 s&#x103;pt. (ulcer duodenal) sau 8 s&#x103;pt. (ulcer gastric). Ulcerul gastric: endoscopie de control la 8 s&#x103;pt. cu biopsii repetate.</div></div>
+        <div class="info-card"><div class="info-card-label">Ulcer AINS</div><div class="info-card-value">Oprirea AINS (dac&#x103; posibil). Dac&#x103; AINS indispensabile: cel mai mic doz&#x103; + IPP concomitent. Alternativ: COX-2 selectivi (celecoxib) + IPP. Se testeaz&#x103; &#x0219;i eradich&#x103; H. pylori &#x00EE;nainte de &#x00EE;nceperea AINS cronic.</div></div>
+      </div>
+      <div class="highlight"><strong>Povestea Nobel:</strong> &#x00CE;n 1984, Barry Marshall a b&#x103;ut o cultur&#x103; de H. pylori pentru a demonstra c&#x103; bacteria cauzeaz&#x103; gastrit&#x103;. A dezvoltat gastrit&#x103; acut&#x103; &#x00EE;n 5 zile &#x0219;i s-a vindecat cu antibiotice. Aceast&#x103; demonstra&#x021B;ie a schimbat fundamental &#x00EE;n&#x021B;elegerea bolii ulceroase &mdash; de la &laquo;stres &#x0219;i diet&#x103;&raquo; la &laquo;infec&#x021B;ie tratabil&#x103;&raquo;.</div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">H. pylori</span><span class="tag">AINS</span><span class="tag">peptic&#x103;</span><span class="tag">perfora&#x021B;ie</span><span class="tag">hemoragie</span><span class="tag">ureaz&#x103;</span><span class="tag">CagA</span><span class="tag">tripl&#x103; terapie</span>
+  </div>
+</div>
+
+<div class="footer-nav">
+  <a class="footer-btn" href="brge.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> BRGE</a>
+  <a class="footer-btn" href="pancreatita-cronica.html">Pancreatita cronic&#x103; <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+<div class="footer">Con&#x021B;inut educa&#x021B;ional &bull; <span>Abona&#x021B;i la S&#x103;n&#x103;tate</span></div>
+</body>
+</html>

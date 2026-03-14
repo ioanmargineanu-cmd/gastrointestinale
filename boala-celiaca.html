@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boala celiac&#x103; &mdash; Patologii GI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0c0f14; --surface: #141820; --surface-hover: #1a2030; --border: #252d3d; --text: #d4dae6; --text-dim: #7a8499; --accent: #e8734a; --color: #e0b44a; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Source Sans 3', sans-serif; line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; }
+  a { color: var(--color); text-decoration: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.5rem 2rem; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); transition: color 0.2s; } .back-link:hover { color: var(--accent); }
+  .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .detail-hero { max-width: 820px; margin: 0 auto; padding: 0 2rem 2.5rem; position: relative; }
+  .detail-hero::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .hero-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem; }
+  .hero-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: color-mix(in srgb, var(--color) 12%, transparent); border: 1px solid color-mix(in srgb, var(--color) 25%, transparent); flex-shrink: 0; }
+  .hero-titles h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 900; color: #fff; line-height: 1.2; }
+  .hero-titles .subtitle { font-size: 0.95rem; color: var(--color); font-weight: 600; margin-top: 0.2rem; }
+  .hero-intro { font-size: 1.05rem; line-height: 1.8; max-width: 720px; }
+  .content { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .section { margin-bottom: 2.5rem; opacity: 0; transform: translateY(12px); animation: fadeUp 0.5s ease forwards; }
+  .section:nth-child(1) { animation-delay: 0.05s; } .section:nth-child(2) { animation-delay: 0.12s; } .section:nth-child(3) { animation-delay: 0.19s; } .section:nth-child(4) { animation-delay: 0.26s; } .section:nth-child(5) { animation-delay: 0.33s; } .section:nth-child(6) { animation-delay: 0.40s; } .section:nth-child(7) { animation-delay: 0.47s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .section-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); border: 1px solid color-mix(in srgb, var(--color) 20%, transparent); padding: 0.2rem 0.55rem; border-radius: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .section-body { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.5rem; }
+  .section-body p { margin-bottom: 0.8rem; font-size: 0.93rem; line-height: 1.75; } .section-body p:last-child { margin-bottom: 0; }
+  .highlight { background: color-mix(in srgb, var(--color) 6%, var(--bg)); border-left: 3px solid var(--color); border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.9rem; line-height: 1.7; } .highlight strong { color: var(--color); }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.5rem; }
+  @media (max-width: 550px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: color-mix(in srgb, var(--color) 5%, var(--bg)); border: 1px solid color-mix(in srgb, var(--color) 12%, transparent); border-radius: 8px; padding: 0.8rem 1rem; }
+  .info-card-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color); margin-bottom: 0.35rem; }
+  .info-card-value { font-size: 0.85rem; line-height: 1.6; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .tag { font-size: 0.7rem; padding: 0.25rem 0.65rem; border-radius: 99px; font-weight: 600; background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--color); border: 1px solid color-mix(in srgb, var(--color) 18%, transparent); }
+  .footer-nav { max-width: 820px; margin: 0 auto; padding: 0 2rem 3rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .footer-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); border: 1px solid var(--border); transition: all 0.25s; }
+  .footer-btn:hover { color: #fff; border-color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); }
+  .footer-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.75rem; } .footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+<a class="back-link" href="index.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Toate patologiile</a>
+
+<div class="detail-hero">
+  <div class="hero-top">
+    <div class="hero-icon">&#x26A1;</div>
+    <div class="hero-titles">
+      <h1>Boala celiac&#x103;</h1>
+      <div class="subtitle">Enteropatie autoimun&#x103; declan&#x0219;at&#x103; de gluten</div>
+    </div>
+  </div>
+  <p class="hero-intro">Boala celiac&#x103; este o enteropatie autoimun&#x103; cronic&#x103; declan&#x0219;at&#x103; de ingestia de gluten la persoanele genetic predispuse (HLA-DQ2 sau HLA-DQ8). R&#x103;spunsul imun distruge vilozit&#x103;&#x021B;ile intestinului sub&#x021B;ire, duc&#x00E2;nd la malabsorb&#x021B;ie. Prevalen&#x021B;a global&#x103; este ~1%, dar majoritatea cazurilor r&#x103;m&#x00E2;n nediagnosticate (raportul diagnosticat:nediagnosticat este aproximativ 1:5).</p>
+</div>
+
+<div class="content">
+  <div class="section">
+    <div class="section-header"><span class="section-number">01</span><h2 class="section-title">Fiziopatologie</h2></div>
+    <div class="section-body">
+      <p>Cascada imunologic&#x103; a bolii celiace este una dintre cele mai bine &#x00EE;n&#x021B;elese din medicina autoimun&#x103;:</p>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Pasul 1: Gliadina</div><div class="info-card-value">Glutenul (din gr&#x00E2;u, secara, orz) este par&#x021B;ial digerat &#x00EE;n peptide de gliadin&#x103;. Aceste peptide traverseaz&#x103; bariera epitelial&#x103; (prin permeabilitate crescut&#x103; mediat&#x103; de zonulin&#x103;).</div></div>
+        <div class="info-card"><div class="info-card-label">Pasul 2: Transglutaminaza</div><div class="info-card-value">Transglutaminaza tisular&#x103; (tTG) deamideaz&#x103; peptidele de gliadin&#x103;, cresc&#x00E2;ndu-le afinitatea pentru moleculele HLA-DQ2/DQ8 de pe celulele prezentatoare de antigen.</div></div>
+        <div class="info-card"><div class="info-card-label">Pasul 3: R&#x103;spuns imun</div><div class="info-card-value">Limfocitele T CD4+ recunosc peptidele prezentate pe HLA-DQ2/8 &#x0219;i declan&#x0219;eaz&#x103; r&#x103;spunsul imun adaptativ: produc&#x021B;ie de citokine (IFN-&#x03B3;), activarea limfocitelor B (anticorpi anti-tTG), &#x0219;i activarea limfocitelor intraepiteliale citotoxice.</div></div>
+        <div class="info-card"><div class="info-card-label">Pasul 4: Distruc&#x021B;ie</div><div class="info-card-value">Limfocitele intraepiteliale (IEL) distrug enterocitele. Rezultat: atrofia vilozit&#x103;&#x021B;ilor, hiperplazia criptelor, infiltrat inflamator. Suprafa&#x021B;a de absorb&#x021B;ie scade dramatic.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">02</span><h2 class="section-title">Tablou clinic</h2></div>
+    <div class="section-body">
+      <p>Spectrul clinic este extrem de larg &mdash; de la forme asimptomatice la malabsorb&#x021B;ie sever&#x103;:</p>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Forma clasic&#x103;</div><div class="info-card-value">Diaree cronic&#x103;, steatoree, balonare, sc&#x103;dere ponderal&#x103;, oboseal&#x103;. Mai frecvent&#x103; la copii. La adul&#x021B;i, forma clasic&#x103; reprezint&#x103; doar ~30% din cazuri.</div></div>
+        <div class="info-card"><div class="info-card-label">Forma non-clasic&#x103;</div><div class="info-card-value">Anemie feripriv&#x103; refractar&#x103; la suplimentare oral&#x103; (cea mai frecvent&#x103; prezentare la adul&#x021B;i), osteoporoz&#x103; precoce, infertilitate/avorturi spontane repetate, hipertransaminaz&#x103; inexplicabil&#x103;.</div></div>
+        <div class="info-card"><div class="info-card-label">Manifest&#x103;ri cutanate</div><div class="info-card-value">Dermatita herpetiform&#x103; (Duhring): vezicule pruriginoase pe coate, genunchi, fese. Este considerat&#x103; echivalentul cutanat al bolii celiace. Depozite granulare de IgA la jonc&#x021B;iunea dermo-epidermic&#x103;.</div></div>
+        <div class="info-card"><div class="info-card-label">Manifest&#x103;ri neurologice</div><div class="info-card-value">Neuropatie periferic&#x103;, ataxie cerebeloas&#x103; (ataxia glutenului), epilepsie cu calcific&#x103;ri occipitale, migren&#x103;. Pot fi singurele manifest&#x103;ri ale bolii.</div></div>
+      </div>
+      <div class="highlight"><strong>Asocieri autoimune:</strong> Diabet zaharat tip 1 (5&ndash;10% au celiac&#x103;), tiroidit&#x103; Hashimoto, hepatit&#x103; autoimun&#x103;, deficit selectiv de IgA, sindrom Down, sindrom Turner. Screeningul celiac e recomandat &#x00EE;n toate aceste condi&#x021B;ii.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">03</span><h2 class="section-title">Diagnostic</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Serologie (screening)</div><div class="info-card-value">Anti-tTG IgA (sensibilitate ~95%, specificitate ~95%) + IgA totale (pentru excluderea deficitului de IgA, prezent la 2&ndash;3% din celiaci). &#x00CE;n deficit IgA: se folosesc anti-tTG IgG sau anti-DGP IgG.</div></div>
+        <div class="info-card"><div class="info-card-label">Biopsie duodenal&#x103;</div><div class="info-card-value">Gold standard pentru confirmare. &#x2265;4 biopsii din D2 + 1&ndash;2 din bulb. Clasificarea Marsh: Marsh 0 (normal), 1 (IEL crescute), 2 (+hiperplazie cript&#x103;), 3a-c (+atrofie vilozitar&#x103; par&#x021B;ial&#x103; p&#x00E2;n&#x103; la total&#x103;).</div></div>
+        <div class="info-card"><div class="info-card-label">Genotipare HLA</div><div class="info-card-value">HLA-DQ2 (95%) sau HLA-DQ8 (5%). Valoare predictiv&#x103; negativ&#x103; excelent&#x103;: dac&#x103; ambele sunt absente, boala celiac&#x103; este practic exclus&#x103;. Nu confirm&#x103; diagnosticul (30&ndash;40% din popula&#x021B;ie e HLA-DQ2+).</div></div>
+        <div class="info-card"><div class="info-card-label">Regula ESPGHAN</div><div class="info-card-value">La copii: dac&#x103; anti-tTG IgA &gt;10x limita superioar&#x103; + EMA pozitiv + HLA-DQ2/8, diagnosticul se poate pune f&#x103;r&#x103; biopsie (ghiduri ESPGHAN 2020).</div></div>
+      </div>
+      <div class="highlight"><strong>Capcan&#x103; diagnostic&#x103;:</strong> Pacientul trebuie s&#x103; consume gluten &#x00EE;n momentul test&#x103;rii. O diet&#x103; f&#x103;r&#x103; gluten ini&#x021B;iat&#x103; &#x00EE;nainte de diagnostic normalizeaz&#x103; anticorpii &#x0219;i histologia, f&#x103;c&#x00E2;nd diagnosticul imposibil. Provocarea cu gluten: 3 g/zi (2 felii p&#x00E2;ine) pe &#x2265;2 s&#x103;pt&#x103;m&#x00E2;ni &#x00EE;nainte de serologie.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">04</span><h2 class="section-title">Management</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Diet&#x103; strict f&#x103;r&#x103; gluten</div><div class="info-card-value">Singura terapie demonstrat&#x103;. Pe via&#x021B;&#x103;, &lt;20 ppm gluten (standard Codex Alimentarius). Eliminarea complet&#x103; a gr&#x00E2;ului, secarei, orzului. Ovazul pur e tolerat de majoritatea (dar risc de contaminare).</div></div>
+        <div class="info-card"><div class="info-card-label">Monitorizare</div><div class="info-card-value">Anti-tTG IgA la 6 &#x0219;i 12 luni, apoi anual. Normalizarea anticorpilor confirm&#x103; complianta. Biopsie de control la 1&ndash;2 ani (practic&#x103; variabil&#x103;). Screening DEXA (osteoporoz&#x103;).</div></div>
+        <div class="info-card"><div class="info-card-label">Suplimentare</div><div class="info-card-value">Fier, acid folic, calciu, vitamina D, zinc, B12 &mdash; conform deficitelor documentate. Anemie feripriv&#x103; se corecteaz&#x103; de obicei &#x00EE;n 3&ndash;6 luni de diet&#x103; + suplimentare. Densitatea osoas&#x103; se amelioreaz&#x103; &#x00EE;n 1&ndash;2 ani.</div></div>
+        <div class="info-card"><div class="info-card-label">Consiliere dietetician</div><div class="info-card-value">Esen&#x021B;ial&#x103; la diagnostic. Surse ascunse de gluten (sosuri, emulsifian&#x021B;i, medicamente, ost&#x103;&#x0219;ii), contaminare &#x00EE;ncruci&#x0219;at&#x103;, citirea etichetelor, g&#x103;tit &#x00EE;n buc&#x103;t&#x103;rie comun&#x103;.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">05</span><h2 class="section-title">Complica&#x021B;ii pe termen lung</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Boala celiac&#x103; refractar&#x103;</div><div class="info-card-value">Persisten&#x021B;a simptomelor &#x0219;i atrofiei vilozitare dup&#x103; 12 luni de diet&#x103; strict&#x103;. Tip I (IEL policlonale &mdash; prognostic bun) vs. Tip II (IEL monoclonale aberante &mdash; risc de transformare &#x00EE;n limfom).</div></div>
+        <div class="info-card"><div class="info-card-label">Limfomul intestinal</div><div class="info-card-value">EATL (enteropathy-associated T-cell lymphoma). Rar, dar risc crescut &#x00EE;n boala celiac&#x103; nediagnosticat&#x103; sau netratat&#x103; pe termen lung. Dieta strict&#x103; reduce semnificativ riscul.</div></div>
+        <div class="info-card"><div class="info-card-label">Osteoporoz&#x103;</div><div class="info-card-value">Malabsorb&#x021B;ia calciului &#x0219;i vitaminei D + inflama&#x021B;ia sistemic&#x103;. DEXA recomandat la diagnostic. Se amelioreaz&#x103; sub diet&#x103; + suplimentare.</div></div>
+        <div class="info-card"><div class="info-card-label">Hiposplenism</div><div class="info-card-value">Prezent la 30&ndash;50% din celiaci. Risc crescut de infec&#x021B;ii cu germeni &#x00EE;ncapsula&#x021B;i (pneumococ, meningococ). Se recomand&#x103; vaccinare.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">06</span><h2 class="section-title">Perspective terapeutice</h2></div>
+    <div class="section-body">
+      <p>Dieta f&#x103;r&#x103; gluten r&#x103;m&#x00E2;ne singura terapie, dar mai multe abord&#x103;ri sunt &#x00EE;n cercetare:</p>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Latiglutenaz&#x103;</div><div class="info-card-value">Enzim&#x103; oral&#x103; care degradeaz&#x103; glutenul &#x00EE;n stomac &#x00EE;nainte de a ajunge &#x00EE;n intestin. Studii de faz&#x103; II/III &mdash; nu &#x00EE;nlocuie&#x0219;te dieta, dar ar putea proteja de expuneri accidentale.</div></div>
+        <div class="info-card"><div class="info-card-label">Inhibitori de zonulin&#x103;</div><div class="info-card-value">Larazotida acetat &mdash; reduce permeabilitatea intestinal&#x103; &#x0219;i trecerea gliadinei. Rezultate mixte &#x00EE;n studii clinice.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">autoimun</span><span class="tag">HLA-DQ2/8</span><span class="tag">anti-tTG</span><span class="tag">atrofie vilozitar&#x103;</span><span class="tag">Marsh</span><span class="tag">gluten</span><span class="tag">dermatit&#x103; herpetiform&#x103;</span><span class="tag">EATL</span>
+  </div>
+</div>
+
+<div class="footer-nav">
+  <a class="footer-btn" href="colita-ulcerativa.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Colita ulcerativ&#x103;</a>
+  <a class="footer-btn" href="brge.html">BRGE <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+<div class="footer">Con&#x021B;inut educa&#x021B;ional &bull; <span>Abona&#x021B;i la S&#x103;n&#x103;tate</span></div>
+</body>
+</html>

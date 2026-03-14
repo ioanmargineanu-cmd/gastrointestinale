@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sindromul de intestin iritabil (IBS) &mdash; Patologii GI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0f14; --surface: #141820; --surface-hover: #1a2030; --border: #252d3d;
+    --text: #d4dae6; --text-dim: #7a8499; --accent: #e8734a; --color: #a47de5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Source Sans 3', sans-serif; line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; }
+  a { color: var(--color); text-decoration: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.5rem 2rem; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); transition: color 0.2s; }
+  .back-link:hover { color: var(--accent); }
+  .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .detail-hero { max-width: 820px; margin: 0 auto; padding: 0 2rem 2.5rem; position: relative; }
+  .detail-hero::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .hero-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem; }
+  .hero-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: color-mix(in srgb, var(--color) 12%, transparent); border: 1px solid color-mix(in srgb, var(--color) 25%, transparent); flex-shrink: 0; }
+  .hero-titles h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 900; color: #fff; line-height: 1.2; }
+  .hero-titles .subtitle { font-size: 0.95rem; color: var(--color); font-weight: 600; margin-top: 0.2rem; }
+  .hero-intro { font-size: 1.05rem; line-height: 1.8; color: var(--text); max-width: 720px; }
+  .content { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .section { margin-bottom: 2.5rem; opacity: 0; transform: translateY(12px); animation: fadeUp 0.5s ease forwards; }
+  .section:nth-child(1) { animation-delay: 0.05s; } .section:nth-child(2) { animation-delay: 0.12s; }
+  .section:nth-child(3) { animation-delay: 0.19s; } .section:nth-child(4) { animation-delay: 0.26s; }
+  .section:nth-child(5) { animation-delay: 0.33s; } .section:nth-child(6) { animation-delay: 0.40s; }
+  .section:nth-child(7) { animation-delay: 0.47s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .section-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); border: 1px solid color-mix(in srgb, var(--color) 20%, transparent); padding: 0.2rem 0.55rem; border-radius: 4px; letter-spacing: 0.05em; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .section-body { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.5rem; }
+  .section-body p { margin-bottom: 0.8rem; font-size: 0.93rem; line-height: 1.75; }
+  .section-body p:last-child { margin-bottom: 0; }
+  .highlight { background: color-mix(in srgb, var(--color) 6%, var(--bg)); border-left: 3px solid var(--color); border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.9rem; line-height: 1.7; }
+  .highlight strong { color: var(--color); }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.5rem; }
+  @media (max-width: 550px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: color-mix(in srgb, var(--color) 5%, var(--bg)); border: 1px solid color-mix(in srgb, var(--color) 12%, transparent); border-radius: 8px; padding: 0.8rem 1rem; }
+  .info-card-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color); margin-bottom: 0.35rem; }
+  .info-card-value { font-size: 0.85rem; line-height: 1.6; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .tag { font-size: 0.7rem; padding: 0.25rem 0.65rem; border-radius: 99px; font-weight: 600; background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--color); border: 1px solid color-mix(in srgb, var(--color) 18%, transparent); }
+  .footer-nav { max-width: 820px; margin: 0 auto; padding: 0 2rem 3rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .footer-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); border: 1px solid var(--border); transition: all 0.25s; }
+  .footer-btn:hover { color: #fff; border-color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); }
+  .footer-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.75rem; }
+  .footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">
+  <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  Toate patologiile
+</a>
+
+<div class="detail-hero">
+  <div class="hero-top">
+    <div class="hero-icon">&#x1F300;</div>
+    <div class="hero-titles">
+      <h1>Sindromul de intestin iritabil</h1>
+      <div class="subtitle">IBS &mdash; Criterii Roma IV</div>
+    </div>
+  </div>
+  <p class="hero-intro">
+    IBS este cea mai frecvent&#x103; tulburare func&#x021B;ional&#x103; gastrointestinal&#x103;, afect&#x00E2;nd 10&ndash;15% din popula&#x021B;ia global&#x103;. Se define&#x0219;te prin durere abdominal&#x103; recurent&#x103; asociat&#x103; cu modificarea tranzitului intestinal, &#x00EE;n absen&#x021B;a unei cauze organice identificabile. Axa intestin-creier joac&#x103; un rol central &#x00EE;n fiziopatologie.
+  </p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Subtipuri</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">IBS-C (constipa&#x021B;ie)</div>
+          <div class="info-card-value">&gt;25% din scaune sunt tari/nodulare (Bristol 1&ndash;2) &#x0219;i &lt;25% sunt moi/apoase. Predomin&#x103; senza&#x021B;ia de evacuare incomplet&#x103; &#x0219;i efortul defecator.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">IBS-D (diaree)</div>
+          <div class="info-card-value">&gt;25% din scaune sunt moi/apoase (Bristol 6&ndash;7) &#x0219;i &lt;25% sunt tari. Predomin&#x103; urgen&#x021B;a defecatorie &#x0219;i frecven&#x021B;a crescut&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">IBS-M (mixt)</div>
+          <div class="info-card-value">&gt;25% scaune tari &#x0219;i &gt;25% scaune moi. Pacientul alterneaz&#x103; &#x00EE;ntre constipa&#x021B;ie &#x0219;i diaree, uneori &#x00EE;n aceea&#x0219;i zi.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">IBS-U (neclasificat)</div>
+          <div class="info-card-value">&#x00CE;ndepline&#x0219;te criteriile de IBS dar nu se &#x00EE;ncadreaz&#x103; &#x00EE;n niciun subtip. Reclasificarea periodic&#x103; e frecvent&#x103; &mdash; subtipul poate varia &#x00EE;n timp.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Fiziopatologie</h2>
+    </div>
+    <div class="section-body">
+      <p>IBS este o tulburare multifactorial&#x103; a interac&#x021B;iunii intestin-creier. Nu exist&#x103; o singur&#x103; cauz&#x103;, ci o constelatie de mecanisme care se &#x00EE;ntrepun:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Hipersensibilitate visceral&#x103;</div>
+          <div class="info-card-value">Pragul de percep&#x021B;ie a durerii la disten&#x0219;ia intestinal&#x103; este sc&#x103;zut. Stimuli care ar fi ignora&#x021B;i de un intestin normal sunt percepu&#x021B;i ca durere.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Dismotilitate</div>
+          <div class="info-card-value">Contrac&#x021B;ii intestinale dezordonate: prea rapide (diaree), prea lente (constipa&#x021B;ie), sau spastice (durere). Tranzitul nu este coordonat eficient.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Axa intestin-creier</div>
+          <div class="info-card-value">Comunicare bidirec&#x021B;ional&#x103; prin nervul vag, axul HPA &#x0219;i sistemul nervos enteric. Stresul psihologic moduleaz&#x103; direct motilitatea, secre&#x021B;ia &#x0219;i permeabilitatea intestinal&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Disbioza</div>
+          <div class="info-card-value">Compozi&#x021B;ia microbiomului intestinal difer&#x103; fa&#x021B;&#x103; de controale sanatoase. Reducerea diversit&#x103;&#x021B;ii, cre&#x0219;terea bacteriilor producatoare de gaze &#x0219;i alterarea metabolismului acizilor biliari.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Permeabilitate intestinal&#x103;</div>
+          <div class="info-card-value">Tight junctions slabite permit trecerea antigenelor &#x00EE;n lamina propria, activand un r&#x103;spuns imun de grad jos care amplific&#x103; hipersensibilitatea.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">IBS post-infec&#x021B;ios</div>
+          <div class="info-card-value">10&ndash;15% din cazuri debuteaz&#x103; dup&#x103; o gastroenterit&#x103; acut&#x103;. Inflama&#x021B;ia rezidual&#x103; de grad jos &#x0219;i alterarea microbiomului persist&#x103; dup&#x103; infec&#x021B;ie.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Diagnostic &mdash; Criterii Roma IV</h2>
+    </div>
+    <div class="section-body">
+      <p>IBS se diagnosticheaz&#x103; clinic, pe baza criteriilor Roma IV, &#x00EE;n absen&#x021B;a semnelor de alarm&#x103;:</p>
+      <div class="highlight">
+        <strong>Criteriile Roma IV:</strong> Durere abdominal&#x103; recurent&#x103;, &#x00EE;n medie &#x2265;1 zi/s&#x103;pt&#x103;m&#x00E2;n&#x103; &#x00EE;n ultimele 3 luni (debut &gt;6 luni &#x00EE;nainte), asociat&#x103; cu &#x2265;2 din urm&#x103;toarele: (1) legat&#x103; de defeca&#x021B;ie, (2) asociat&#x103; cu modificarea frecven&#x021B;ei scaunului, (3) asociat&#x103; cu modificarea formei scaunului.
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Investiga&#x021B;ii minime</div>
+          <div class="info-card-value">Hemogram&#x103; complet&#x103;, PCR/VSH, calprotectin&#x103; fecal&#x103; (exclude inflama&#x021B;ia organic&#x103;), serologie celiac&#x103; (anti-tTG IgA). La &gt;50 ani: colonoscopie de screening.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Semne de alarm&#x103; (red flags)</div>
+          <div class="info-card-value">S&#x00E2;nge &#x00EE;n scaun, sc&#x103;dere ponderal&#x103; neinten&#x021B;ionat&#x103;, debut dup&#x103; 50 ani, anemie, mas&#x103; abdominal&#x103; palpabil&#x103;, istoric familial de cancer colorectal sau IBD.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Management dietetic</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Dieta low-FODMAP</div>
+          <div class="info-card-value">Cea mai studiat&#x103; interven&#x021B;ie dietetic&#x103;. 3 faze: eliminare (2&ndash;6 s&#x103;pt.), reintroducere (6&ndash;8 s&#x103;pt.), personalizare. Eficacitate: 50&ndash;80% ameliorare simptomatologic&#x103;. Trebuie ghidat&#x103; de dietetician.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Fibre</div>
+          <div class="info-card-value">Fibrele solubile (psyllium, ispagula) amelioreaz&#x103; simptomele &#x00EE;n IBS-C. Fibrele insolubile (t&#x103;r&#x00E2;&#x021B;e de gr&#x00E2;u) pot agrava balonarea &#x0219;i sunt contraindicate la mul&#x021B;i pacien&#x021B;i.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Probiotice</div>
+          <div class="info-card-value">Anumite tulpini au dovezi modeste: Bifidobacterium infantis 35624, Lactobacillus plantarum 299v, VSL#3. Efectul este tulpin&#x103;-specific, nu generic.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Alte m&#x103;suri</div>
+          <div class="info-card-value">Mese regulate, mastica&#x021B;ie lent&#x103;, hidratare adecvat&#x103;, limitarea cofeninei &#x0219;i alcoolului, evitarea &#x00EE;ndulcitorilor cu polioli (sorbitol, xilitol).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Management farmacologic</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Antispastice</div>
+          <div class="info-card-value">Mebeverin&#x103;, hioscin&#x103;, pinaverium, otilonium. Reduc spasmele &#x0219;i durerea. Eficacitate moderat&#x103;, profil de siguran&#x021B;&#x103; bun.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Neuromodulatoare</div>
+          <div class="info-card-value">Antidepresive triciclice &#x00EE;n doze mici (amitriptilin&#x103; 10&ndash;25 mg) &mdash; ac&#x021B;ioneaz&#x103; pe hipersensibilitatea visceral&#x103;, nu pe depresie. ISRS pentru IBS cu component&#x103; anxioas&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">IBS-D specific</div>
+          <div class="info-card-value">Loperamid (simptome acute), rifaximin (antibiotic non-absorbit, reduce balonarea), eluxadolin&#x103;, sequestranti de acizi biliari (colestiramina).</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">IBS-C specific</div>
+          <div class="info-card-value">Linaclotid&#x103; (agonist guanilat ciclaz&#x103;-C), lubiproston&#x103;, plecanatid&#x103;, prucaloprid&#x103; (prokinetic 5-HT4). Psyllium ca prim&#x103; linie.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Abordarea psihologic&#x103;</h2>
+    </div>
+    <div class="section-body">
+      <p>Dat fiind rolul central al axei intestin-creier, interven&#x021B;iile psihologice sunt componente esen&#x021B;iale ale management-ului IBS, nu terapii &laquo;de rezerv&#x103;&raquo;:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Terapie cognitiv-comportamental&#x103;</div>
+          <div class="info-card-value">Cea mai studiat&#x103; interven&#x021B;ie psihologic&#x103; &#x00EE;n IBS. NNT (number needed to treat) de ~3, similar cu cel al medicamentelor. Efect sustinut la 12 luni.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Hipnoterapia orientat&#x103; pe intestin</div>
+          <div class="info-card-value">Protocolul Manchester (12 &#x0219;edin&#x021B;e). Dovezi solide de eficacitate, inclusiv &#x00EE;n cazurile refractare. Reduce hipersensibilitatea visceral&#x103; m&#x103;surabil.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Rela&#x021B;ia medic-pacient:</strong> Validarea simptomelor, explicarea mecanismului (axa intestin-creier), stabilirea a&#x0219;tept&#x103;rilor realiste &#x0219;i implicarea activ&#x103; a pacientului &#x00EE;n decizii sunt asociate cu rezultate mai bune dec&#x00E2;t orice medicament individual.
+      </div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">func&#x021B;ional</span>
+    <span class="tag">Roma IV</span>
+    <span class="tag">axa intestin-creier</span>
+    <span class="tag">low-FODMAP</span>
+    <span class="tag">hipersensibilitate visceral&#x103;</span>
+    <span class="tag">disbioz&#x103;</span>
+    <span class="tag">CBT</span>
+    <span class="tag">neuromodulatoare</span>
+  </div>
+</div>
+
+<div class="footer-nav">
+  <a class="footer-btn" href="sensibilitatea-gluten.html">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Sensibilitatea la gluten
+  </a>
+  <a class="footer-btn" href="dispepsia-functionala.html">
+    Dispepsia func&#x021B;ional&#x103;
+    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</div>
+
+<div class="footer">Con&#x021B;inut educa&#x021B;ional &bull; <span>Abona&#x021B;i la S&#x103;n&#x103;tate</span></div>
+
+</body>
+</html>

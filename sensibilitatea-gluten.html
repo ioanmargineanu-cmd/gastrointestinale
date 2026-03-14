@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensibilitatea la gluten (non-celiac&#x103;) &mdash; Patologii GI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0f14; --surface: #141820; --surface-hover: #1a2030; --border: #252d3d;
+    --text: #d4dae6; --text-dim: #7a8499; --accent: #e8734a; --color: #e0b44a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Source Sans 3', sans-serif; line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; }
+  a { color: var(--color); text-decoration: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.5rem 2rem; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); transition: color 0.2s; }
+  .back-link:hover { color: var(--accent); }
+  .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .detail-hero { max-width: 820px; margin: 0 auto; padding: 0 2rem 2.5rem; position: relative; }
+  .detail-hero::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .hero-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem; }
+  .hero-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: color-mix(in srgb, var(--color) 12%, transparent); border: 1px solid color-mix(in srgb, var(--color) 25%, transparent); flex-shrink: 0; }
+  .hero-titles h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 900; color: #fff; line-height: 1.2; }
+  .hero-titles .subtitle { font-size: 0.95rem; color: var(--color); font-weight: 600; margin-top: 0.2rem; }
+  .hero-intro { font-size: 1.05rem; line-height: 1.8; color: var(--text); max-width: 720px; }
+  .content { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .section { margin-bottom: 2.5rem; opacity: 0; transform: translateY(12px); animation: fadeUp 0.5s ease forwards; }
+  .section:nth-child(1) { animation-delay: 0.05s; } .section:nth-child(2) { animation-delay: 0.12s; }
+  .section:nth-child(3) { animation-delay: 0.19s; } .section:nth-child(4) { animation-delay: 0.26s; }
+  .section:nth-child(5) { animation-delay: 0.33s; } .section:nth-child(6) { animation-delay: 0.40s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .section-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); border: 1px solid color-mix(in srgb, var(--color) 20%, transparent); padding: 0.2rem 0.55rem; border-radius: 4px; letter-spacing: 0.05em; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .section-body { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.5rem; }
+  .section-body p { margin-bottom: 0.8rem; font-size: 0.93rem; line-height: 1.75; }
+  .section-body p:last-child { margin-bottom: 0; }
+  .highlight { background: color-mix(in srgb, var(--color) 6%, var(--bg)); border-left: 3px solid var(--color); border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.9rem; line-height: 1.7; }
+  .highlight strong { color: var(--color); }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.5rem; }
+  @media (max-width: 550px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: color-mix(in srgb, var(--color) 5%, var(--bg)); border: 1px solid color-mix(in srgb, var(--color) 12%, transparent); border-radius: 8px; padding: 0.8rem 1rem; }
+  .info-card-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color); margin-bottom: 0.35rem; }
+  .info-card-value { font-size: 0.85rem; line-height: 1.6; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .tag { font-size: 0.7rem; padding: 0.25rem 0.65rem; border-radius: 99px; font-weight: 600; background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--color); border: 1px solid color-mix(in srgb, var(--color) 18%, transparent); }
+  .footer-nav { max-width: 820px; margin: 0 auto; padding: 0 2rem 3rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .footer-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); border: 1px solid var(--border); transition: all 0.25s; }
+  .footer-btn:hover { color: #fff; border-color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); }
+  .footer-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.75rem; }
+  .footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">
+  <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  Toate patologiile
+</a>
+
+<div class="detail-hero">
+  <div class="hero-top">
+    <div class="hero-icon">&#x1F33E;</div>
+    <div class="hero-titles">
+      <h1>Sensibilitatea la gluten</h1>
+      <div class="subtitle">NCGS &mdash; Non-Celiac Gluten Sensitivity</div>
+    </div>
+  </div>
+  <p class="hero-intro">
+    Sensibilitatea la gluten non-celiac&#x103; (NCGS) descrie un tablou de simptome digestive &#x0219;i extradigestive declan&#x0219;ate de ingestia de gluten, &#x00EE;n absen&#x021B;a bolii celiace (f&#x103;r&#x103; atrofie vilozitar&#x103;, f&#x103;r&#x103; anti-tTG pozitiv) &#x0219;i a alergiei la gr&#x00E2;u (f&#x103;r&#x103; IgE specifice). Mecanismul r&#x103;m&#x00E2;ne incomplet elucidat, iar diagnosticul se face exclusiv prin excludere.
+  </p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Controverse &#x0219;i nuance</h2>
+    </div>
+    <div class="section-body">
+      <p>NCGS este probabil cea mai controversat&#x103; entitate din gastroenterologie. Exist&#x103; dovezi solide c&#x103; unii pacien&#x021B;i reac&#x021B;ioneaz&#x103; reproductibil la gluten &#x00EE;n studii dublu-orb, dar tot mai multe cercet&#x103;ri sugereaz&#x103; c&#x103; vinova&#x021B;ii ar putea fi al&#x021B;i componen&#x021B;i din gr&#x00E2;u:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">ATI (inhibitorii amilazei-tripsinei)</div>
+          <div class="info-card-value">Proteine din gr&#x00E2;u care activeaz&#x103; imunitatea &#x00EE;nn&#x103;scut&#x103; prin receptorul TLR4. Sunt prezente &#x00EE;n cantit&#x103;&#x021B;i mici, dar foarte imunogene. Unii cercet&#x103;tori propun termenul de &laquo;sensibilitate la gr&#x00E2;u&raquo; &#x00EE;n locul &laquo;sensibilit&#x103;&#x021B;ii la gluten&raquo;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Fructani (FODMAP)</div>
+          <div class="info-card-value">Gr&#x00E2;ul con&#x021B;ine fructani &mdash; oligozaharide fermentabile. Un studiu norvegian (Skodje 2018) a ar&#x103;tat c&#x103; fructanii, nu glutenul, au fost responsabili de simptome la pacien&#x021B;ii cu NCGS autopercepute.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Efectul nocebo</div>
+          <div class="info-card-value">&#x00CE;n unele studii, p&#x00E2;n&#x103; la 40% din pacien&#x021B;i reac&#x021B;ioneaz&#x103; &#x0219;i la placebo. Factorul psihologic &#x0219;i a&#x0219;teptarea simptomelor joac&#x103; un rol semnificativ.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Subgrup real</div>
+          <div class="info-card-value">Exist&#x103; totu&#x0219;i un subgrup de pacien&#x021B;i la care provocarea dublu-orb cu gluten reproduce simptomele constant. Mecanismul probabil: activarea imunit&#x103;&#x021B;ii &#x00EE;nn&#x103;scute, nu a celei adaptive.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Tablou clinic</h2>
+    </div>
+    <div class="section-body">
+      <p>Simptomele apar de obicei la ore p&#x00E2;n&#x103; la zile dup&#x103; ingestia de gluten &#x0219;i se remit dup&#x103; eliminarea acestuia:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Digestive</div>
+          <div class="info-card-value">Balonare (cel mai frecvent simptom), durere abdominal&#x103;, diaree sau constipa&#x021B;ie, grea&#x021B;&#x103;, flatulen&#x021B;&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Extradigestive</div>
+          <div class="info-card-value">Oboseal&#x103; cronic&#x103;, cefalee, cea&#x021B;&#x103; mental&#x103; (brain fog), dureri articulare &#x0219;i musculare, eritem cutanat, anxietate, stare depresiv&#x103;.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Diferen&#x021B;&#x103; fa&#x021B;&#x103; de boala celiac&#x103;:</strong> &#x00CE;n NCGS nu exist&#x103; atrofie vilozitar&#x103;, nu exist&#x103; risc de malabsorb&#x021B;ie sever&#x103;, osteoporoz&#x103; sau limfom intestinal. Severitatea simptomelor poate fi comparabil&#x103;, dar consecin&#x021B;ele pe termen lung sunt fundamental diferite.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Diagnostic</h2>
+    </div>
+    <div class="section-body">
+      <p>Diagnosticul NCGS se face exclusiv prin excludere &mdash; nu exist&#x103; un biomarker specific. Protocolul Salerno (2015) propune:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Pasul 1: Excludere</div>
+          <div class="info-card-value">Se exclud boala celiac&#x103; (anti-tTG IgA negativ, biopsie normal&#x103;) &#x0219;i alergia la gr&#x00E2;u (IgE specifice negative, prick test negativ).</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Pasul 2: Diet&#x103; f&#x103;r&#x103; gluten</div>
+          <div class="info-card-value">Eliminarea glutenului pe minimum 6 s&#x103;pt&#x103;m&#x00E2;ni. Se monitorizeaz&#x103; ameliorarea simptomelor (scor VAS).</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Pasul 3: Provocare dublu-orb</div>
+          <div class="info-card-value">Reintroducerea glutenului vs. placebo &#x00EE;n capsule identice, cu perioad&#x103; de washout &#x00EE;ntre ele. Reproducerea simptomelor la gluten confirm&#x103; diagnosticul. Rar efectuat &#x00EE;n practic&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Biomarkeri poten&#x021B;iali</div>
+          <div class="info-card-value">Anti-gliadina IgG (pozitiv la ~50% din NCGS, dar nespecific). Zonulina seric&#x103; (marker de permeabilitate intestinal&#x103;, cercetare). Nu exist&#x103; &#x00EE;nc&#x103; un test de confirmare.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Management</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">Diet&#x103; f&#x103;r&#x103; gluten</div>
+          <div class="info-card-value">Spre deosebire de boala celiac&#x103;, &#x00EE;n NCGS dieta nu trebuie s&#x103; fie strict&#x103; pe via&#x021B;&#x103;. Majoritatea pacien&#x021B;ilor tolereaz&#x103; cantit&#x103;&#x021B;i mici de gluten. Pragul trebuie identificat individual.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Reintroducere periodic&#x103;</div>
+          <div class="info-card-value">Se recomand&#x103; &#x00EE;ncercarea de reintroducere la fiecare 12&ndash;24 luni, deoarece NCGS poate fi tranzitorie la unii pacien&#x021B;i.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Diet&#x103; low-FODMAP</div>
+          <div class="info-card-value">Dac&#x103; dieta f&#x103;r&#x103; gluten nu aduce ameliorare complet&#x103;, o diet&#x103; low-FODMAP poate fi mai eficient&#x103; &mdash; argument &#x00EE;n favoarea ipotezei fructanilor.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Abordare psihologic&#x103;</div>
+          <div class="info-card-value">Dat fiind rolul efectului nocebo, consilierea &#x0219;i gestionarea a&#x0219;tept&#x103;rilor sunt componente importante ale management-ului.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Aten&#x021B;ie la deficite:</strong> Dieta f&#x103;r&#x103; gluten pe termen lung poate fi s&#x103;rac&#x103; &#x00EE;n fibre, fier, folat &#x0219;i vitamine B dac&#x103; nu este bine planificat&#x103;. Produsele gluten-free procesate sunt adesea mai bogate &#x00EE;n zah&#x103;r &#x0219;i gr&#x103;simi dec&#x00E2;t echivalentele cu gluten.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">NCGS vs. Celiac&#x103; vs. Alergie la gr&#x00E2;u</h2>
+    </div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-label">NCGS</div>
+          <div class="info-card-value">Imunitate &#x00EE;nn&#x103;scut&#x103;. F&#x103;r&#x103; atrofie vilozitar&#x103;. F&#x103;r&#x103; anticorpi specifici. Simptome ore&ndash;zile dup&#x103; ingestie. Poten&#x021B;ial tranzitorie.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Boala celiac&#x103;</div>
+          <div class="info-card-value">Imunitate adaptativ&#x103; (autoimun&#x103;). Atrofie vilozitar&#x103; Marsh 3. Anti-tTG IgA pozitiv. HLA-DQ2/DQ8. Risc de complica&#x021B;ii severe. Diet&#x103; strict&#x103; pe via&#x021B;&#x103;.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Alergia la gr&#x00E2;u</div>
+          <div class="info-card-value">Mediat&#x103; IgE. Simptome imediate (minute): urticarie, angioedem, anafilaxie, simptome respiratorii. Prick test &#x0219;i IgE specifice pozitive. Tratament: evitarea complet&#x103; a gr&#x00E2;ului.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">WDEIA</div>
+          <div class="info-card-value">Anafilaxie indus&#x103; de efort dependent&#x103; de gr&#x00E2;u. Apare doar c&#x00E2;nd efortul fizic urmeaz&#x103; ingestiei de gr&#x00E2;u. Mediat&#x103; de &#x03C9;-5 gliadina. Poten&#x021B;ial letal&#x103;.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">NCGS</span>
+    <span class="tag">gluten</span>
+    <span class="tag">ATI</span>
+    <span class="tag">fructani</span>
+    <span class="tag">FODMAP</span>
+    <span class="tag">nocebo</span>
+    <span class="tag">Salerno</span>
+    <span class="tag">diagnostic de excludere</span>
+  </div>
+</div>
+
+<div class="footer-nav">
+  <a class="footer-btn" href="intoleran%C8%9Ba-fructoza.html">
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Intoleran&#x021B;a la fructoz&#x103;
+  </a>
+  <a class="footer-btn" href="ibs.html">
+    Sindromul de intestin iritabil
+    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</div>
+
+<div class="footer">Con&#x021B;inut educa&#x021B;ional &bull; <span>Abona&#x021B;i la S&#x103;n&#x103;tate</span></div>
+
+</body>
+</html>

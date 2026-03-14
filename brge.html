@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRGE &mdash; Patologii GI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0c0f14; --surface: #141820; --border: #252d3d; --text: #d4dae6; --text-dim: #7a8499; --accent: #e8734a; --color: #4ac2c9; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Source Sans 3', sans-serif; line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; }
+  a { color: var(--color); text-decoration: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.5rem 2rem; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); transition: color 0.2s; } .back-link:hover { color: var(--accent); }
+  .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .detail-hero { max-width: 820px; margin: 0 auto; padding: 0 2rem 2.5rem; position: relative; }
+  .detail-hero::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .hero-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem; }
+  .hero-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: color-mix(in srgb, var(--color) 12%, transparent); border: 1px solid color-mix(in srgb, var(--color) 25%, transparent); flex-shrink: 0; }
+  .hero-titles h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 900; color: #fff; line-height: 1.2; }
+  .hero-titles .subtitle { font-size: 0.95rem; color: var(--color); font-weight: 600; margin-top: 0.2rem; }
+  .hero-intro { font-size: 1.05rem; line-height: 1.8; max-width: 720px; }
+  .content { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .section { margin-bottom: 2.5rem; opacity: 0; transform: translateY(12px); animation: fadeUp 0.5s ease forwards; }
+  .section:nth-child(1) { animation-delay: 0.05s; } .section:nth-child(2) { animation-delay: 0.12s; } .section:nth-child(3) { animation-delay: 0.19s; } .section:nth-child(4) { animation-delay: 0.26s; } .section:nth-child(5) { animation-delay: 0.33s; } .section:nth-child(6) { animation-delay: 0.40s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .section-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500; color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); border: 1px solid color-mix(in srgb, var(--color) 20%, transparent); padding: 0.2rem 0.55rem; border-radius: 4px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .section-body { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.5rem; }
+  .section-body p { margin-bottom: 0.8rem; font-size: 0.93rem; line-height: 1.75; } .section-body p:last-child { margin-bottom: 0; }
+  .highlight { background: color-mix(in srgb, var(--color) 6%, var(--bg)); border-left: 3px solid var(--color); border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.9rem; line-height: 1.7; } .highlight strong { color: var(--color); }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.5rem; }
+  @media (max-width: 550px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: color-mix(in srgb, var(--color) 5%, var(--bg)); border: 1px solid color-mix(in srgb, var(--color) 12%, transparent); border-radius: 8px; padding: 0.8rem 1rem; }
+  .info-card-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color); margin-bottom: 0.35rem; }
+  .info-card-value { font-size: 0.85rem; line-height: 1.6; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .tag { font-size: 0.7rem; padding: 0.25rem 0.65rem; border-radius: 99px; font-weight: 600; background: color-mix(in srgb, var(--color) 10%, transparent); color: var(--color); border: 1px solid color-mix(in srgb, var(--color) 18%, transparent); }
+  .footer-nav { max-width: 820px; margin: 0 auto; padding: 0 2rem 3rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .footer-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); border: 1px solid var(--border); transition: all 0.25s; }
+  .footer-btn:hover { color: #fff; border-color: var(--color); background: color-mix(in srgb, var(--color) 10%, transparent); }
+  .footer-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.75rem; } .footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+<a class="back-link" href="index.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Toate patologiile</a>
+
+<div class="detail-hero">
+  <div class="hero-top">
+    <div class="hero-icon">&#x1FAC1;</div>
+    <div class="hero-titles">
+      <h1>Boala de reflux gastroesofagian</h1>
+      <div class="subtitle">BRGE &mdash; Reflux acid cronic</div>
+    </div>
+  </div>
+  <p class="hero-intro">BRGE apare c&#x00E2;nd con&#x021B;inutul gastric acid refluaz&#x103; &#x00EE;n esofag cu o frecven&#x021B;&#x103; sau durat&#x103; care dep&#x103;&#x0219;e&#x0219;te mecanismele de ap&#x103;rare ale mucoasei esofagiene. Este una dintre cele mai frecvente patologii digestive, cu o prevalen&#x021B;&#x103; de 15&ndash;25% &#x00EE;n &#x021B;&#x103;rile occidentale.</p>
+</div>
+
+<div class="content">
+  <div class="section">
+    <div class="section-header"><span class="section-number">01</span><h2 class="section-title">Fiziopatologie</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Sfincterul esofagian inferior (SEI)</div><div class="info-card-value">Mecanismul principal: relax&#x103;ri tranzitorii ale SEI (TLESR) &mdash; relax&#x103;ri spontane nelegate de degluti&#x021B;ie, care permit refluxul. &#x00CE;n formele severe: hipotonie bazal&#x103; a SEI (&lt;10 mmHg).</div></div>
+        <div class="info-card"><div class="info-card-label">Hernia hiatal&#x103;</div><div class="info-card-value">Deplasarea jonc&#x021B;iunii gastro-esofagiene deasupra diafragmului. Reduce competen&#x021B;a SEI &#x0219;i creeaz&#x103; un rezervor acid (acid pocket) &#x00EE;n sacul herniar. Prezent&#x103; la 50&ndash;90% din pacien&#x021B;ii cu esofagit&#x103; sever&#x103;.</div></div>
+        <div class="info-card"><div class="info-card-label">Acid pocket</div><div class="info-card-value">Zon&#x103; de acid nebuferat la nivelul jonc&#x021B;iunii gastro-esofagiene, postprandial. Descoperire relativ recent&#x103; care explic&#x103; de ce refluxul apare mai ales dup&#x103; mese.</div></div>
+        <div class="info-card"><div class="info-card-label">Factori agravanti</div><div class="info-card-value">Obezitatea (cre&#x0219;terea presiunii intra-abdominale), mesele tardive/abundente, decubitul postprandial, fumatul, alcoolul, anumite medicamente (blocante de calciu, nitroglicerin&#x103;).</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">02</span><h2 class="section-title">Tablou clinic</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Simptome tipice</div><div class="info-card-value">Pirozis (arsur&#x103; retrosternal&#x103; ascendent&#x103;, mai ales postprandial &#x0219;i &#x00EE;n decubit). Regurgitare acid&#x103; (senza&#x021B;ia de lichid acid &#x00EE;n gur&#x103;/faringele posterior).</div></div>
+        <div class="info-card"><div class="info-card-label">Simptome atipice</div><div class="info-card-value">Durere toracic&#x103; non-cardiac&#x103; (necesit&#x103; excluderea cauzei cardiace!), tuse cronic&#x103;, laringit&#x103; de reflux (r&#x103;gu&#x0219;eal&#x103; matinal&#x103;), astm agravat de reflux, eroziuni dentare, faringit&#x103; cronic&#x103;.</div></div>
+        <div class="info-card"><div class="info-card-label">Semne de alarm&#x103;</div><div class="info-card-value">Disfagie (dificultate la &#x00EE;nghi&#x021B;ire), odinofagie (durere la &#x00EE;nghi&#x021B;ire), sc&#x103;dere ponderal&#x103;, anemie, hematemeză. Indic&#x103; endoscopie urgent&#x103;.</div></div>
+        <div class="info-card"><div class="info-card-label">NERD vs. ERD</div><div class="info-card-value">60&ndash;70% din pacien&#x021B;ii cu BRGE au endoscopie normal&#x103; (NERD &mdash; non-erosive reflux disease). Restul au esofagit&#x103; eroziv&#x103; (ERD), clasificat&#x103; Los Angeles A&ndash;D.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">03</span><h2 class="section-title">Complica&#x021B;ii</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Esofagita eroziv&#x103;</div><div class="info-card-value">Eroziuni ale mucoasei esofagiene vizibile endoscopic. Clasificare Los Angeles: A (eroziuni &lt;5mm), B (&gt;5mm), C (eroziuni confluente &lt;75% circumferin&#x021B;&#x103;), D (&gt;75%).</div></div>
+        <div class="info-card"><div class="info-card-label">Strictura peptic&#x103;</div><div class="info-card-value">&#x00CE;ngustarea esofagului prin fibroza secundar&#x103; esofagitei cronice. Produce disfagie progresiv&#x103; (ini&#x021B;ial solide, apoi lichide). Tratament: dilatare endoscopic&#x103; + IPP.</div></div>
+        <div class="info-card"><div class="info-card-label">Esofagul Barrett</div><div class="info-card-value">Metaplazie intestinal&#x103;: epiteliul scuamos esofagian este &#x00EE;nlocuit cu epiteliu columnar intestinal (cu celule caliciforme). Leziune precanceroas&#x103;. Risc de progresie spre adenocarcinom: 0.5%/an.</div></div>
+        <div class="info-card"><div class="info-card-label">Adenocarcinom esofagian</div><div class="info-card-value">Secven&#x021B;a: BRGE &#x2192; Barrett &#x2192; displazie de grad sc&#x103;zut &#x2192; displazie de grad &#x00EE;nalt &#x2192; adenocarcinom. Inciden&#x021B;&#x103; &#x00EE;n cre&#x0219;tere dramatic&#x103; &#x00EE;n ultimele decenii.</div></div>
+      </div>
+      <div class="highlight"><strong>Screening Barrett:</strong> Recomandat la b&#x103;rba&#x021B;ii &gt;50 ani cu BRGE cronic&#x103; (&gt;5 ani) &#x0219;i &#x2265;1 factor de risc (obezitate, fumat, rud&#x103; de gradul I cu Barrett/adenocarcinom). Supravegherea Barrett: endoscopie cu biopsii &#x00EE;n 4 cadrane la fiecare 2 cm.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">04</span><h2 class="section-title">Diagnostic</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Diagnostic clinic</div><div class="info-card-value">Pirozis + regurgitare tipice &#x2192; se poate &#x00EE;ncepe IPP empiric f&#x103;r&#x103; investiga&#x021B;ii (la &lt;50 ani, f&#x103;r&#x103; red flags). R&#x103;spunsul la IPP sus&#x021B;ine diagnosticul.</div></div>
+        <div class="info-card"><div class="info-card-label">Endoscopia digestiv&#x103; superioar&#x103;</div><div class="info-card-value">Indicat&#x103; &#x00EE;n: semne de alarm&#x103;, v&#x00E2;rst&#x103; &gt;50 ani, e&#x0219;ec la IPP, simptome de &gt;5 ani (screening Barrett). Evalueaz&#x103; esofagita, Barrett, stricturi.</div></div>
+        <div class="info-card"><div class="info-card-label">pH-metrie 24h</div><div class="info-card-value">Gold standard pentru cuantificarea refluxului. Sonda transnazal&#x103; sau capsula wireless (Bravo). M&#x103;soar&#x103;: timp de expunere acid&#x103; (normal &lt;6%), num&#x103;r de episoade, corela&#x021B;ia simptom-reflux.</div></div>
+        <div class="info-card"><div class="info-card-label">pH-impedan&#x021B;&#x103;</div><div class="info-card-value">Detecteaz&#x103; &#x0219;i refluxul non-acid (slab-acid &#x0219;i alcalin). Util la pacien&#x021B;ii sub IPP cu simptome persistente. Diferen&#x021B;iaz&#x103; BRGE de pirozis func&#x021B;ional.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-number">05</span><h2 class="section-title">Management</h2></div>
+    <div class="section-body">
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-label">Modific&#x103;ri stil de via&#x021B;&#x103;</div><div class="info-card-value">Sc&#x103;dere ponderal&#x103; (cea mai eficient&#x103; m&#x103;sur&#x103;), ridicarea capului patului 15&ndash;20 cm, evitarea meselor cu 3h &#x00EE;nainte de culcare, evitarea alimentelor trigger (individualizat).</div></div>
+        <div class="info-card"><div class="info-card-label">IPP (prima linie)</div><div class="info-card-value">Omeprazol, esomeprazol, pantoprazol, rabeprazol, lansoprazol. Cur&#x103; de 4&ndash;8 s&#x103;pt&#x103;m&#x00E2;ni. Eficacitate: vindecarea esofagitei &gt;90%. Se administreaz&#x103; 30 min &#x00EE;nainte de mic dejun.</div></div>
+        <div class="info-card"><div class="info-card-label">Anti-H2</div><div class="info-card-value">Famotidin&#x103; &mdash; util&#x103; ca supliment seara (reflux nocturn) sau &#x00EE;n formele u&#x0219;oare. Eficacitate inferioar&#x103; IPP. Poate dezvolta tahifilaxie (toleran&#x021B;&#x103;).</div></div>
+        <div class="info-card"><div class="info-card-label">Chirurgie antireflux</div><div class="info-card-value">Fundoplicatura Nissen (laparoscopic&#x103;): fundusul gastric e &#x00EE;nf&#x103;&#x0219;urat &#x00EE;n jurul esofagului distal. Indicat&#x103; la pacien&#x021B;ii tineri, r&#x103;spuns bun la IPP dar care nu vor terapie pe via&#x021B;&#x103;, sau hernie hiatal&#x103; mare.</div></div>
+        <div class="info-card"><div class="info-card-label">VONOPRAZAN (P-CAB)</div><div class="info-card-value">Noua clas&#x103;: blocant competitiv de potasiu al pompei de protoni. Ac&#x021B;iune mai rapid&#x103; &#x0219;i mai puternic&#x103; dec&#x00E2;t IPP, nu necesit&#x103; administrare preprandial&#x103;. Aprobat &#x00EE;n Japonia, &#x00EE;n curs de adoptare &#x00EE;n Europa.</div></div>
+        <div class="info-card"><div class="info-card-label">Algina&#x021B;i</div><div class="info-card-value">Gaviscon (alginat de sodiu) formeaz&#x103; o barier&#x103; fizic&#x103; (raft de alginat) deasupra con&#x021B;inutului gastric, reduc&#x00E2;nd acid pocket-ul. Util ca adjuvant sau &#x00EE;n sarcin&#x103;.</div></div>
+      </div>
+      <div class="highlight"><strong>IPP pe termen lung &mdash; balan&#x021B;a risc-beneficiu:</strong> Utilizarea cronic&#x103; de IPP a fost asociat&#x103; (&#x00EE;n studii observa&#x021B;ionale) cu risc u&#x0219;or crescut de: fracturi osteoporotice, deficit de magneziu &#x0219;i B12, infec&#x021B;ie cu C. difficile, nefrit&#x103; intersticial&#x103;. Riscurile absolute sunt mici, dar se recomand&#x103; utilizarea celei mai mici doze eficiente &#x0219;i reevaluarea periodic&#x103; a indica&#x021B;iei.</div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">SEI</span><span class="tag">pirozis</span><span class="tag">Barrett</span><span class="tag">IPP</span><span class="tag">hernie hiatal&#x103;</span><span class="tag">pH-metrie</span><span class="tag">Nissen</span><span class="tag">acid pocket</span>
+  </div>
+</div>
+
+<div class="footer-nav">
+  <a class="footer-btn" href="boala-celiaca.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Boala celiac&#x103;</a>
+  <a class="footer-btn" href="ulcerul-peptic.html">Ulcerul peptic <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+<div class="footer">Con&#x021B;inut educa&#x021B;ional &bull; <span>Abona&#x021B;i la S&#x103;n&#x103;tate</span></div>
+</body>
+</html>
