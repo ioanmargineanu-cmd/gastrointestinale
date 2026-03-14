@@ -454,6 +454,91 @@
     </div>
   </div>
 
+  <!-- SVG: Schema fiziopatologica -->
+  <div class="section">
+    <div class="section-body" style="padding: 1rem 0.5rem;">
+      <svg width="100%" viewBox="0 0 680 520" style="display: block; margin: 0 auto;">
+        <defs>
+          <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <style>
+          .svg-title { fill: #fff; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; }
+          .svg-label { fill: var(--text); font-family: 'Source Sans 3', sans-serif; font-size: 13px; }
+          .svg-label-bold { fill: #fff; font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 600; }
+          .svg-small { fill: var(--text-dim); font-family: 'Source Sans 3', sans-serif; font-size: 11.5px; }
+          .svg-line { stroke: var(--text-dim); stroke-width: 0.8; }
+        </style>
+
+        <text class="svg-title" x="340" y="24" text-anchor="middle">Digestia lactozei &#x2014; cele dou&#x103; c&#x103;i</text>
+
+        <!-- LACTOZA top -->
+        <rect x="255" y="44" width="170" height="40" rx="8" fill="#e0b44a" fill-opacity="0.15" stroke="#e0b44a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="340" y="68" text-anchor="middle" dominant-baseline="central">Lactoz&#x103; (lapte)</text>
+
+        <!-- Split arrows -->
+        <line x1="300" y1="84" x2="175" y2="126" class="svg-line" marker-end="url(#arr1)"/>
+        <line x1="380" y1="84" x2="505" y2="126" class="svg-line" marker-end="url(#arr1)"/>
+
+        <!-- LEFT: Normal path -->
+        <text class="svg-small" x="175" y="118" text-anchor="middle">Lactaz&#x103; prezent&#x103;</text>
+        <rect x="70" y="134" width="210" height="50" rx="8" fill="#5cb87a" fill-opacity="0.12" stroke="#5cb87a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="175" y="152" text-anchor="middle" dominant-baseline="central">Intestin sub&#x021B;ire</text>
+        <text class="svg-small" x="175" y="170" text-anchor="middle" dominant-baseline="central">Lactaz&#x103; scindez&#x103; lactoza</text>
+
+        <line x1="175" y1="184" x2="175" y2="224" class="svg-line" marker-end="url(#arr1)"/>
+
+        <rect x="60" y="232" width="100" height="36" rx="6" fill="#5cb87a" fill-opacity="0.12" stroke="#5cb87a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="110" y="254" text-anchor="middle" dominant-baseline="central">Glucoz&#x103;</text>
+
+        <rect x="180" y="232" width="110" height="36" rx="6" fill="#5cb87a" fill-opacity="0.12" stroke="#5cb87a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="235" y="254" text-anchor="middle" dominant-baseline="central">Galactoz&#x103;</text>
+
+        <line x1="110" y1="268" x2="110" y2="306" class="svg-line" marker-end="url(#arr1)"/>
+        <line x1="235" y1="268" x2="235" y2="306" class="svg-line" marker-end="url(#arr1)"/>
+
+        <rect x="55" y="314" width="240" height="50" rx="8" fill="#5cb87a" fill-opacity="0.12" stroke="#5cb87a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="175" y="332" text-anchor="middle" dominant-baseline="central">Absorb&#x021B;ie normal&#x103;</text>
+        <text class="svg-small" x="175" y="350" text-anchor="middle" dominant-baseline="central">SGLT1, GLUT2 &#x2192; s&#x00E2;nge</text>
+
+        <line x1="175" y1="364" x2="175" y2="400" class="svg-line" marker-end="url(#arr1)"/>
+
+        <rect x="95" y="408" width="160" height="40" rx="8" fill="#5cb87a" fill-opacity="0.18" stroke="#5cb87a" stroke-width="0.8"/>
+        <text class="svg-label-bold" x="175" y="432" text-anchor="middle" dominant-baseline="central" fill="#5cb87a">F&#x103;r&#x103; simptome</text>
+
+        <!-- RIGHT: Deficit path -->
+        <text class="svg-small" x="505" y="118" text-anchor="middle">Deficit de lactaz&#x103;</text>
+        <rect x="400" y="134" width="210" height="50" rx="8" fill="#d95b6a" fill-opacity="0.12" stroke="#d95b6a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="505" y="152" text-anchor="middle" dominant-baseline="central">Intestin sub&#x021B;ire</text>
+        <text class="svg-small" x="505" y="170" text-anchor="middle" dominant-baseline="central">Lactoza r&#x103;m&#x00E2;ne intact&#x103;</text>
+
+        <line x1="505" y1="184" x2="505" y2="224" class="svg-line" marker-end="url(#arr1)"/>
+
+        <rect x="395" y="232" width="220" height="50" rx="8" fill="#d95b6a" fill-opacity="0.12" stroke="#d95b6a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="505" y="250" text-anchor="middle" dominant-baseline="central">Colon</text>
+        <text class="svg-small" x="505" y="268" text-anchor="middle" dominant-baseline="central">Fermenta&#x021B;ie bacterian&#x103;</text>
+
+        <line x1="455" y1="282" x2="420" y2="326" class="svg-line" marker-end="url(#arr1)"/>
+        <line x1="555" y1="282" x2="590" y2="326" class="svg-line" marker-end="url(#arr1)"/>
+
+        <rect x="340" y="334" width="160" height="50" rx="8" fill="#e0b44a" fill-opacity="0.12" stroke="#e0b44a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="420" y="352" text-anchor="middle" dominant-baseline="central">Gaze</text>
+        <text class="svg-small" x="420" y="370" text-anchor="middle" dominant-baseline="central">H&#x2082;, CO&#x2082;, CH&#x2084;</text>
+
+        <rect x="520" y="334" width="155" height="50" rx="8" fill="#e0b44a" fill-opacity="0.12" stroke="#e0b44a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="597" y="352" text-anchor="middle" dominant-baseline="central">Efect osmotic</text>
+        <text class="svg-small" x="597" y="370" text-anchor="middle" dominant-baseline="central">Ap&#x103; &#x2192; lumen</text>
+
+        <line x1="420" y1="384" x2="470" y2="420" class="svg-line" marker-end="url(#arr1)"/>
+        <line x1="597" y1="384" x2="547" y2="420" class="svg-line" marker-end="url(#arr1)"/>
+
+        <rect x="410" y="428" width="200" height="40" rx="8" fill="#d95b6a" fill-opacity="0.18" stroke="#d95b6a" stroke-width="0.8"/>
+        <text class="svg-label-bold" x="510" y="452" text-anchor="middle" dominant-baseline="central" fill="#d95b6a">Balonare, diaree, crampe</text>
+      </svg>
+    </div>
+  </div>
+
   <!-- 04 SIMPTOME -->
   <div class="section">
     <div class="section-header">
@@ -503,6 +588,77 @@
           <div class="info-card-value">M&#x103;soar&#x103; direct activitatea lactazei din mucoasa jejunal&#x103;. Invaziv, folosit rar &#x00EE;n practic&#x103;, de obicei &#x00EE;n contextul unei endoscopii efectuate din alt motiv.</div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- SVG: Arbore diagnostic -->
+  <div class="section">
+    <div class="section-body" style="padding: 1rem 0.5rem;">
+      <svg width="100%" viewBox="0 0 680 480" style="display: block; margin: 0 auto;">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <text class="svg-title" x="340" y="24" text-anchor="middle">Algoritm diagnostic</text>
+
+        <!-- Step 1: Suspiciune -->
+        <rect x="195" y="44" width="290" height="40" rx="8" fill="#e0b44a" fill-opacity="0.15" stroke="#e0b44a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="340" y="68" text-anchor="middle" dominant-baseline="central">Suspiciune clinic&#x103; (simptome)</text>
+
+        <line x1="340" y1="84" x2="340" y2="120" class="svg-line" marker-end="url(#arr2)"/>
+
+        <!-- Step 2: Test respirator -->
+        <rect x="170" y="128" width="340" height="50" rx="8" fill="#a47de5" fill-opacity="0.12" stroke="#a47de5" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="340" y="146" text-anchor="middle" dominant-baseline="central">Test respirator cu H&#x2082; (gold standard)</text>
+        <text class="svg-small" x="340" y="164" text-anchor="middle" dominant-baseline="central">25&#x2013;50 g lactoz&#x103; oral, m&#x103;surare 3&#x2013;4 ore</text>
+
+        <!-- Branch positive -->
+        <line x1="260" y1="178" x2="160" y2="226" class="svg-line" marker-end="url(#arr2)"/>
+        <text class="svg-small" x="192" y="206" text-anchor="middle">H&#x2082; &gt; 20 ppm</text>
+
+        <!-- Branch negative -->
+        <line x1="420" y1="178" x2="520" y2="226" class="svg-line" marker-end="url(#arr2)"/>
+        <text class="svg-small" x="488" y="206" text-anchor="middle">H&#x2082; &lt; 20 ppm</text>
+
+        <!-- Positive result -->
+        <rect x="55" y="234" width="210" height="50" rx="8" fill="#d95b6a" fill-opacity="0.12" stroke="#d95b6a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="160" y="252" text-anchor="middle" dominant-baseline="central">Malabsorb&#x021B;ie confirmat&#x103;</text>
+        <text class="svg-small" x="160" y="270" text-anchor="middle" dominant-baseline="central">Deficit de lactaz&#x103;</text>
+
+        <!-- Negative result -->
+        <rect x="415" y="234" width="220" height="50" rx="8" fill="#4ac2c9" fill-opacity="0.12" stroke="#4ac2c9" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="525" y="252" text-anchor="middle" dominant-baseline="central">Probabil tolerant</text>
+        <text class="svg-small" x="525" y="270" text-anchor="middle" dominant-baseline="central">Alte cauze? IBS, SIBO, fructoz&#x103;</text>
+
+        <!-- From positive: classify -->
+        <line x1="160" y1="284" x2="160" y2="324" class="svg-line" marker-end="url(#arr2)"/>
+        <text class="svg-small" x="168" y="312" text-anchor="start">Clasificare</text>
+
+        <rect x="35" y="332" width="250" height="40" rx="8" fill="#a47de5" fill-opacity="0.12" stroke="#a47de5" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="160" y="356" text-anchor="middle" dominant-baseline="central">Test genetic LCT -13910 C/T</text>
+
+        <!-- Two outcomes -->
+        <line x1="100" y1="372" x2="80" y2="414" class="svg-line" marker-end="url(#arr2)"/>
+        <line x1="220" y1="372" x2="250" y2="414" class="svg-line" marker-end="url(#arr2)"/>
+
+        <text class="svg-small" x="72" y="406" text-anchor="middle">C/C</text>
+        <text class="svg-small" x="266" y="406" text-anchor="middle">C/T sau T/T</text>
+
+        <rect x="10" y="422" width="140" height="36" rx="6" fill="#d95b6a" fill-opacity="0.15" stroke="#d95b6a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="80" y="444" text-anchor="middle" dominant-baseline="central">Form&#x103; primar&#x103;</text>
+
+        <rect x="185" y="422" width="150" height="36" rx="6" fill="#e0b44a" fill-opacity="0.15" stroke="#e0b44a" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="260" y="444" text-anchor="middle" dominant-baseline="central">Form&#x103; secundar&#x103;?</text>
+
+        <!-- From negative: additional tests -->
+        <line x1="525" y1="284" x2="525" y2="324" class="svg-line" marker-end="url(#arr2)"/>
+
+        <rect x="395" y="332" width="260" height="50" rx="8" fill="var(--border)" fill-opacity="0.4" stroke="var(--border)" stroke-width="0.6"/>
+        <text class="svg-label-bold" x="525" y="350" text-anchor="middle" dominant-baseline="central">Investiga&#x021B;ii suplimentare</text>
+        <text class="svg-small" x="525" y="368" text-anchor="middle" dominant-baseline="central">Celiac&#x103;, SIBO, FODMAP, IBS</text>
+      </svg>
     </div>
   </div>
 
